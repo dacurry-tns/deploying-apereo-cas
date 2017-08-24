@@ -1,0 +1,18 @@
+destination: _site/
+url: "http://127.0.0.1:4001"
+baseurl: "/depl-pdf"
+port: 4001
+output: pdf
+product: deploying-apereo-cas
+print_title: Deploying Apereo CAS
+print_subtitle: (DRAFT)
+output: pdf
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page_print"
+      comments: true
+      search: true

@@ -1,0 +1,35 @@
+## How To Create PDFs
+
+Briefly, here are the steps:
+
+1. Set up and install Prince (http://www.princexml.com/doc/installing/).
+   Read the licensing requirements in detail, but chances are you can install
+   a version for free.
+
+2. Stop any running instances of Jekyll.
+
+3. Edit "pdfconfgs/config_xxx_pdf.yml" and set properties to your taste.
+
+4. From the top-level directory, start a special instance of Jekyll using both
+   "_config.yml" and "pdfconfigs/config_xxx_pdf.yml":
+
+   $ bundle exec jekyll serve --detach --config \
+      _config.yml,pdfconfigs/config_xxx_pdf.yml;
+
+   Note that the "--detach" option does not work on Windows.
+
+5. From the top-level directory, run Prince to generate the PDF file:
+
+   $ prince --javascript --input-list=_site/pdfconfigs/prince-list.txt \
+       -o pdf/xxx.pdf;
+
+   On Windows, you should use the Prince engine, not the Prince GUI. To do
+   this, add Prince's `bin` directory to your path:
+
+   $ PATH="$PATH:/c/Program Files (x86)/Prince/Engine/bin"
+
+For more details, see the Jekyll Documentation Theme documentation on creating
+PDF files:
+
+   http://idratherbewriting.com/documentation-theme-jekyll/mydoc_generating_pdfs.html
+

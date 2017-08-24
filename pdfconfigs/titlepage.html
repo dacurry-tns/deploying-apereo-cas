@@ -4,19 +4,20 @@ search: exclude
 permalink: /titlepage/
 ---
 <div class="printTitleArea">
+    <div class="printTitleImage" style="position: relative">
+	<img src="{{site.url}}/{{site.baseurl}}/images/tns_logo_200x131.png" alt="The New School Logo" style="position: absolute; top: 0px; right: 0px"/>
+    </div>
+
     <div class="printTitle">{{site.print_title}}</div>
     <div class="printSubtitle">{{site.print_subtitle}}</div>
     <div class="lastGeneratedDate">Last generated: {{ site.time | date: '%B %d, %Y' }}</div>
     <hr />
 
-    <div class="printTitleImage">
-        <img src="{{site.url}}/{{site.baseurl}}/images/company_logo_big.png" alt="Company Logo"/>
-    </div>
-
     <div class="copyrightBoilerplate">
-        <p>&copy; {{ site.time | date: "%Y" }} {{site.company_name}}. This is a boilerplate copyright statement... All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the publisher, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
-        </p>
-
+	<p>
+	    <img alt="Creative Commons License" style="border-width: 0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"/><br/>
+	    Copyright &copy; 2017, The New School. This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+	</p>
     </div>
 
 </div>

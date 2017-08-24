@@ -1,0 +1,49 @@
+/* Override Tipue Search default CSS (assets/tipuesearch/css/tipuesearch.css) */
+
+/* Make the Tipue search box look like the Jekyll Doc theme's search box */
+#tipue_search_input {
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    font-size: 0.8em;
+
+    width: 20em;
+    max-width: 20em;
+
+    padding: 0.5em;
+    margin-top: 10px;
+    margin-left: 20px;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* Don't style URLs (use theme styles) */
+.tipue_search_content_url {
+     font-family: inherit;
+     font-weight: inherit;
+     line-height: inherit;
+     font-size: inherit;
+}
+
+/* Make titles look like H2s */
+.tipue_search_content_title {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 29px;
+    font-size: 24px;
+}
+
+/* Don't style regular text (use theme styles) */
+.tipue_search_content_text {
+     font-weight: inherit;
+     line-height: inherit;
+     font-family: inherit;
+     font-size: inherit;
+}
+
+/* Just bold the search terms */
+.tipue_search_content_bold {
+     font-weight: bold;
+}

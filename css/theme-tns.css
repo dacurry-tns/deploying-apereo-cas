@@ -1,0 +1,162 @@
+.summary {
+    color: #808080;
+    border-left: 5px solid #E82E21;
+    font-size: 16px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #666666;
+    color: white;
+}
+
+.nav > li.active > a {
+    background-color: #E82E21;
+}
+
+.nav > li > a:hover {
+    background-color: #666666;
+}
+
+div.navbar-collapse .dropdown-menu > li > a:hover {
+    background-color: #E82E21;
+}
+
+.nav li.thirdlevel > a {
+    background-color: #FAFAFA !important;
+    color: #666666;
+    font-weight: bold;
+}
+
+a[data-toggle="tooltip"] {
+    color: #649345;
+    font-style: italic;
+    cursor: default;
+}
+
+.navbar-inverse {
+    background-color: #E82E21;
+    border-color: #666666;
+}
+
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover, a.fa.fa-home.fa-lg.navbar-brand:hover {
+     color: #f0f0f0;
+}
+
+a.navbar-brand:hover {
+  color: #f0f0f0;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #666666;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #666666;
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #666666 !important;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #E82E21;
+    border-color: #E82E21;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    background-color: #E82E21;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    background-color: #666666;
+    border-color: #E82E21;
+}
+
+.printTitle {
+    color: #666666 !important;
+}
+
+h3 { color: #666666; }
+h4 { color: #666666; }
+
+body.print h1 {color: #E82E21 !important; font-size: 28px !important;}
+body.print h2 {color: #666666 !important; font-size: 20px !important;}
+body.print h3 {color: #666666 !important; font-size: 14px !important;}
+body.print h4 {color: #666666 !important; font-size: 14px; font-style: italic !important;}
+
+.anchorjs-link:hover {
+    color: #216f9b;
+}
+
+div.sidebarTitle {
+    color: #E82E21;
+}
+
+li.sidebarTitle {
+  margin-top: 20px;
+    font-weight: bold;
+    font-size: 130%;
+    color: #E82E21;
+    margin-bottom: 10px;
+    margin-left: 5px;
+
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #015CAE;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #015CAE;
+}
+
+.navbar {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.tns-banner-logo {
+    padding: 15px 0px 4px 6px;
+}
+
+.tns-bottom-stripe {
+     width: 100%;
+     padding: 0 6px 4px 6px;
+     box-sizing: border-box;
+}
+
+.tns-bottom-stripe-inner {
+    background-color: #000000;
+    width: 100%;
+    height: 5px;
+}
+
+.printTitle {
+    color: #E82E21 !important;
+}
+
+.nav li.active > ul > li.subfolders.active > ul > li.active > a {
+    background-color: #D3D3D3;
+    color: #333;
+}
+
+.nav li li li a:hover {
+    background-color: #D3D3D3;
+    color: #333;
+}
+
+@page frontmatter {
+    @bottom-left {
+	content: "The New School - www.newschool.edu" !important;
+    }
+}

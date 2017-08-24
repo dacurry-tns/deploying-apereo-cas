@@ -1,0 +1,45 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: Sidebar
+  product: Deploying Apereo CAS
+  version: (DRAFT)
+
+  folders:
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage
+      output: pdf
+      type: frontmatter
+
+  - title: Introduction
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /introduction_overview.html
+      output: web, pdf
+      type: homepage
+
+  - title: About
+    output: web, pdf
+    folderitems:
+    - title: About The New School
+      url: /about_about-the-new-school.html
+      output: web, pdf
+    - title: Author information
+      url: /about_author-information.html
+      output: web, pdf
+
+  - title: Search
+    output: web
+    folderitems:
+    - title: Results
+      url: /search.html
+      output: web

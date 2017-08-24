@@ -14,9 +14,9 @@
 <link rel="stylesheet" href="css/customstyles.css">
 
 <!-- most color styles are extracted out to here -->
-<link rel="stylesheet" href="css/theme-blue.css">
+<link rel="stylesheet" href="css/theme-tns.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="{{ "js/jquery.navgoco.min.js" }}"></script>
@@ -39,3 +39,13 @@
 <![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.url }}">
+
+{% if page.tipue_search_active or layout.tipue_search_active %}
+<link rel="stylesheet" href="{{ "/assets/tipuesearch/css/normalize.css" | relative_url }}">
+<script src="{{ "/assets/tipuesearch/tipuesearch_content.js" | relative_url }}"></script>
+<link rel="stylesheet" href="{{ "/assets/tipuesearch/css/tipuesearch.css" | relative_url }}">
+<script src="{{ "/assets/tipuesearch/tipuesearch_set.js" | relative_url }}"></script>
+<script src="{{ "/assets/tipuesearch/tipuesearch.min.js" | relative_url }}"></script>
+{% endif %}
+
+<link rel="stylesheet" href="css/tipuesearch.css">
