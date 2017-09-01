@@ -1,0 +1,58 @@
+---
+title: Update the service registry
+last_updated: September 1, 2017
+sidebar: main_sidebar
+permalink: building_server_mfa_update-the-service-registry.html
+summary:
+---
+
+Although it's possible to enable MFA across the board for all services by setting properties in `cas.properties` (see [CAS 5: Configuration Properties: Multifactor Authentication][casdoc-mfa-props]), it's usually preferable to configure it on a per-service basis in the service registry.
+
+## Create a second service definition for the CAS client
+
+Make a copy of `etc/cas/services/casapp-cas-only.json` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and call it `casapp-cas-duo.json`:
+
+```console
+casdev-master# cd /opt/workspace/cas-overlay-template
+casdev-master# cp -p etc/cas/services/casapp-cas-only.json etc/cas/services/casapp-cas-duo.json
+```
+
+Then edit `etc/cas/services/casapp-cas-duo.json` and do the following:
+
+1. Change the `serviceId` property to reflect the path to the secure area [created in the previous step][building_server_mfa_update-the-cas-client-config].
+2. Change the `id` property to a unique value.
+3. Change the `description` property to include the Duo MFA requirement.
+4. Add the `multifactorPolicy` property as shown below.
+5. Change the `evaluationOrder` property to a different value.
+
+When done, the file should look something like this:
+
+```json
+{
+  "@class" : "org.apereo.cas.services.RegexRegisteredService",
+  "serviceId" : "^https://casdev-casapp.newschool.edu/secured-by-cas-duo(\\z|/.*)",
+  "id" : 201700831132700,
+  "name" : "CasApp Secured by CAS and Duo",
+  "description" : "CAS development Apache mod_auth_cas server with username/password and Duo MFA protection",
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
+  },
+  "multifactorPolicy" : {
+    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceMultifactorPolicy",
+    "multifactorAuthenticationProviders" : [ "java.util.LinkedHashSet", [ "mfa-duo" ] ],
+    "bypassEnabled" : false,
+    "failureMode" : "CLOSED"
+  },
+  "evaluationOrder" : 1200
+}
+```
+
+The `multifactorPolicy` added here defines a single MFA provider, `mfa-duo`. It does not allow the MFA requirement to be bypassed (meaning that users not registered with Duo will not be able to log in), and it will fail "closed," meaning that if for some reason the Duo service is unavailable, users will not be able to log in.
+
+## References
+
+* [CAS 5: Duo Security Authentication][casdoc-mfa-duo]
+* [CAS 5: Configuration Properties: Multifactor Authentication][casdoc-mfa-props]
+
+{% include reflinks.md %}
+{% include links.html %}

@@ -11,11 +11,11 @@ entries:
     type: frontmatter
     folderitems:
     - title:
-      url: /titlepage
+      url: /titlepage.html
       output: pdf
       type: frontmatter
     - title:
-      url: /tocpage
+      url: /tocpage.html
       output: pdf
       type: frontmatter
 
@@ -26,6 +26,286 @@ entries:
       url: /introduction_overview.html
       output: web, pdf
       type: homepage
+    - title: SSO environment architecture
+      url: /introduction_sso-environment-architecture.html
+      output: web, pdf
+    - title: Leveraging the cloud (future)
+      url: /introduction_leveraging-the-cloud.html
+      output: web, pdf
+
+  - title: Setting up the environment
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /setup_overview.html
+      output: web, pdf
+    - title: Initial setup tasks
+      url: /setup_initial-setup-tasks.html
+      output: web, pdf
+    - title: Configure time synchronization
+      url: /setup_configure-time-synchronization.html
+      output: web, pdf
+
+      subfolders:
+      - title: Install Apache Tomcat on the CAS servers
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /setup_tomcat_overview.html
+          output: web, pdf
+        - title: Install an entropy daemon
+          url: /setup_tomcat_install-an-entropy-daemon.html
+          output: web, pdf
+        - title: Install Java
+          url: /setup_tomcat_install-java.html
+          output: web, pdf
+        - title: Install Tomcat
+          url: /setup_tomcat_install-tomcat.html
+          output: web, pdf
+        - title: Install Tomcat dependencies
+          url: /setup_tomcat_install-tomcat-dependencies.html
+          output: web, pdf
+        - title: Organize the installation
+          url: /setup_tomcat_organize-the-installation.html
+          output: web, pdf
+        - title: Harden the installation
+          url: /setup_tomcat_harden-the-installation.html
+          output: web, pdf
+        - title: Configure TLS/SSL settings
+          url: /setup_tomcat_configure-tlsssl-settings.html
+          output: web, pdf
+        - title: Configure asychronous request support
+          url: /setup_tomcat_configure-asynchronous-request-support.html
+          output: web, pdf
+        - title: Configure X-Forwarded-For header processing
+          url: /setup_tomcat_configure-xforwardedfor-header-processing.html
+          output: web, pdf
+        - title: Tune resource caching settings
+          url: /setup_tomcat_tune-resource-caching-settings.html
+          output: web, pdf
+        - title: Configure asychronous logging support
+          url: /setup_tomcat_configure-asynchronous-logging-support.html
+          output: web, pdf
+        - title: Open TLS/SSL port in the firewall
+          url: /setup_tomcat_open-tlsssl-port-in-the-firewall.html
+          output: web, pdf
+        - title: Configure systemd to start Tomcat
+          url: /setup_tomcat_configure-systemd-to-start-tomcat.html
+          output: web, pdf
+        - title: Test the Tomcat installation
+          url: /setup_tomcat_test-the-tomcat-installation.html
+          output: web, pdf
+        - title: Distribute the Tomcat installation to the CAS servers
+          url: /setup_tomcat_distribute-the-tomcat-installation.html
+          output: web, pdf
+        - title: Configure the load balancers
+          url: /setup_tomcat_configure-the-load-balancers.html
+          output: web, pdf
+
+      - title: Install HTTPD and PHP on the client servers
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /setup_httpd-php_overview.html
+          output: web, pdf
+        - title: Install software packages
+          url: /setup_httpd-php_install-software-packages.html
+          output: web, pdf
+        - title: Configure TLS/SSL and PHP settings
+          url: /setup_httpd-php_configure-tlsssl-php-settings.html
+          output: web, pdf
+        - title: Open HTTP/HTTPS ports in the firewall
+          url: /setup_httpd-php_open-http-https-ports-in-the-firewall.html
+          output: web, pdf
+        - title: Configure systemd to start HTTPD
+          url: /setup_httpd-php_configure-systemd-to-start-httpd.html
+          output: web, pdf
+        - title: Test the HTTPD installation
+          url: /setup_httpd-php_test-the-httpd-installation.html
+          output: web, pdf
+
+  - title: Building the CAS server
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /building_server_overview.html
+      output: web, pdf
+    - title: Create a Maven WAR overlay project
+      url: /building_server_create-a-amaven-war-overlay-project.html
+      output: web, pdf
+    - title: Build the default server
+      url: /building_server_build-the-default-server.html
+      output: web, pdf
+    - title: Configure server properties
+      url: /building_server_configure-server-properties.html
+      output: web, pdf
+    - title: Configure logging settings
+      url: /building_server_configure-logging-settings.html
+      output: web, pdf
+    - title: Install and test the CAS application
+      url: /building_server_install-and-test-the-cas-application.html
+      output: web, pdf
+    - title: Commit changes to Git
+      url: /building_server_commit-changes-to-git.html
+      output: web, pdf
+
+  - title: Adding a service registry
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /building_server_service-registry_overview.html
+      output: web, pdf
+    - title: Add the feature and rebuild the server
+      url: /building_server_service-registry_add-feature-and-rebuild.html
+      output: web, pdf
+    - title: Configure the service registry
+      url: /building_server_service-registry_configure-the-service-registry.html
+      output: web, pdf
+    - title: Install and test the service registry
+      url: /building_server_service-registry_install-and-test-the-service-registry.html
+      output: web, pdf
+    - title: Commit changes to Git
+      url: /building_server_service-registry_commit-changes-to-git.html
+      output: web, pdf
+
+  - title: Building the CAS client
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /building_casclient_overview.html
+      output: web, pdf
+    - title: Install the mod_auth_cas plugin
+      url: /building_casclient_install-the-mod_auth_cas-plugin.html
+      output: web, pdf
+    - title: Configure HTTPD to use CAS
+      url: /building_casclient_configure-httpd-to-use-cas.html
+      output: web, pdf
+    - title: Test the application
+      url: /building_casclient_test-the-application.html
+      output: web, pdf
+
+  - title: Adding LDAP support
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /building_server_ldap_overview.html
+      output: web, pdf
+
+      subfolders:
+      - title: Configuring LDAP authentication
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /building_server_ldap_authentication_overview.html
+          output: web, pdf
+        - title: Configure Active Directory authentication properties
+          url: /building_server_ldap_authentication_config-ad-auth-properties.html
+          output: web, pdf
+        - title: Configure Luminis LDAP authentication properties
+          url: /building_server_ldap_authentication_config-luminis-auth-properties.html
+          output: web, pdf
+
+      - title: Configuring LDAP attribute resolution and release
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /building_server_ldap_resolution-release_overview.html
+          output: web, pdf
+        - title: Configure attribute resolution
+          url: /building_server_ldap_resolution-release_configure-attribute-resolution.html
+          output: web, pdf
+        - title: Update the service registry
+          url: /building_server_ldap_resolution-release_update-the-service-registry.html
+          output: web, pdf
+        - title: Update the CAS client configuration
+          url: /building_server_ldap_resolution-release_update-the-cas-client-config.html
+          output: web, pdf
+        - title: Install and test the application
+          url: /building_server_ldap_resolution-release_install-and-test-the-application.html
+          output: web, pdf
+
+    - title: Commit changes to git
+      url: /building_server_ldap_commit-changes-to-git.html
+      output: web, pdf
+
+  - title: Adding MFA support
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /building_server_mfa_overview.html
+      output: web, pdf
+    - title: Configure Duo authentication
+      url: /building_server_mfa_configure-duo-authentication.html
+      output: web, pdf
+    - title: Update the CAS client configuration
+      url: /building_server_mfa_update-the-cas-client-config.html
+      output: web, pdf
+    - title: Update the service registry
+      url: /building_server_mfa_update-the-service-registry.html
+      output: web, pdf
+    - title: Install and test the application
+      url: /building_server_mfa_install-and-test-the-application.html
+      output: web, pdf
+    - title: Commit changes to Git
+      url: /building_server_mfa_commit-changes-to-git.html
+      output: web, pdf
+
+  - title: Adding SAML support
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /building_server_saml_overview.html
+      output: web, pdf
+
+  - title: Building the SAML client
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /building_samlclient_overview.html
+      output: web, pdf
+
+  - title: Building the service management webapp
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /building_svcmgmt_overview.html
+      output: web, pdf
+
+  - title: Customizing the CAS user interface
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /ui_overview.html
+      output: web, pdf
+
+  - title: High availability
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /high-avail_overview.html
+      output: web, pdf
+
+      subfolders:
+      - title: Building the configuration server
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /high-avail_config-server_overview.html
+          output: web, pdf
+
+      - title: Setting up the service registry
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /high-avail_service-registry_overview.html
+          output: web, pdf
+
+      - title: Setting up the ticket registry
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /high-avail_ticket-registry_overview.html
+          output: web, pdf
 
   - title: About
     output: web, pdf

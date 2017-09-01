@@ -1,6 +1,6 @@
 ---
 title: About The New School
-last_updated: July 25, 2017
+last_updated: September 1, 2017
 sidebar: main_sidebar
 permalink: about_about-the-new-school.html
 ---

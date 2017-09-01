@@ -7,5 +7,11 @@ entries:
 
   - title: Other Links
     folderitems:
-    - title: title words
-      url: /page.html#anchor
+    - title: Import the certificate into a Java keystore
+      url: /setup_tomcat_configure-tlsssl-settings.html#importtokeystore
+    - title: Enable and configure the HTTPS connector
+      url: /setup_tomcat_configure-tlsssl-settings.html#enablehttpsconnector
+    - title: Create a local branch
+      url: /building_server_create-a-amaven-war-overlay-project.html#localbranch
+    - title: Define a CAS-specific service monitor on the load balancers
+      url: /building_server_install-and-test-the-cas-application.html#loadbalancer

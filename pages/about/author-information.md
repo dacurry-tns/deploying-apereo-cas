@@ -1,6 +1,6 @@
 ---
 title: Author information
-last_updated: July 25, 2017
+last_updated: September 1, 2017
 sidebar: main_sidebar
 permalink: about_author-information.html
 ---
