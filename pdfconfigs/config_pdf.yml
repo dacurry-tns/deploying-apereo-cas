@@ -1,6 +1,6 @@
 destination: _site/
 url: "http://127.0.0.1:4001"
-baseurl: "/depl-pdf"
+baseurl: ""
 port: 4001
 output: pdf
 product: deploying-apereo-cas
@@ -16,3 +16,5 @@ defaults:
       layout: "page_print"
       comments: true
       search: true
+
+pdf_sidebar: main_sidebar
