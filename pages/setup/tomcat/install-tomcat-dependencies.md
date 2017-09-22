@@ -1,6 +1,6 @@
 ---
 title: Install Tomcat dependencies
-last_updated: September 1, 2017
+last_updated: September 22, 2017
 sidebar: main_sidebar
 permalink: setup_tomcat_install-tomcat-dependencies.html
 summary:
@@ -77,14 +77,14 @@ This will install the current version of the APR library in a version-specific s
 The Tomcat Native Library source code is included as part of the Tomcat distribution; it just needs to be extracted, compiled, and installed. Run the commands
 
 ```console
-casdev-master# cd /opt/tomcat/apache-tomcat-8.5.16/bin
+casdev-master# cd /opt/tomcat/apache-tomcat-8.5.20/bin
 casdev-master# tar xzf tomcat-native.tar.gz
 casdev-master# cd tomcat-native-*-src/native
 casdev-master# ./configure \
   --with-java-home=/usr/lib/jvm/java-openjdk \
   --with-apr=/opt/apr/latest/bin/apr-1-config \
   --with-ssl=/opt/openssl/latest \
-  --prefix=/opt/tomcat/apache-tomcat-8.5.16
+  --prefix=/opt/tomcat/apache-tomcat-8.5.20
 (lots of output... check for errors)
 casdev-master# make
 (lots of output... check for errors)
@@ -94,7 +94,7 @@ casdev-master# cd ../..
 casdev-master# rm -rf tomcat-native-*-src
 ```
 
-to build the Tomcat Native Library on the master build server (***casdev-master***). (Replace `8.5.16` in the commands above with the version of Tomcat installed earlier.)
+to build the Tomcat Native Library on the master build server (***casdev-master***). (Replace `8.5.20` in the commands above with the version of Tomcat installed earlier.)
 
 This will install the Tomcat Native Library in the `lib` directory of its associated Tomcat installation.
 
@@ -103,7 +103,7 @@ This will install the Tomcat Native Library in the `lib` directory of its associ
 The Apache Commons Daemon (`jsvc`) allows Tomcat to be started as `root` to perform some privileged operations (such as binding to ports below 1024) and then switch identity to run as a non-privileged user, which is better from a security perspective. The daemon is included as part of the Tomcat distribution; it just needs to be extracted, compiled, and installed. Run the commands
 
 ```console
-casdev-master# cd /opt/tomcat/apache-tomcat-8.5.16/bin
+casdev-master# cd /opt/tomcat/apache-tomcat-8.5.20/bin
 casdev-master# tar xzf commons-daemon-native.tar.gz
 casdev-master# cd commons-daemon-*-native-src/unix
 casdev-master# ./configure --with-java=/usr/lib/jvm/java-openjdk
@@ -115,7 +115,7 @@ casdev-master# cd ../..
 casdev-master# rm -rf commons-daemon-*-native-src
 ```
 
-to build the Tomcat Native Library on the master build server (***casdev-master***). (Replace `8.5.16` in the commands above with the version of Tomcat installed earlier.)
+to build the Tomcat Native Library on the master build server (***casdev-master***). (Replace `8.5.20` in the commands above with the version of Tomcat installed earlier.)
 
 This will install the `jsvc` program in the bin directory of its associated Tomcat installation.
 
