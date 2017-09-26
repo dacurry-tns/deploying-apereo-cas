@@ -1,6 +1,6 @@
 ---
 title: Install and test the application
-last_updated: September 1, 2017
+last_updated: September 26, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_install-and-test-the-application.html
 summary:
@@ -67,7 +67,7 @@ Click on the "here" link to access the secure content, and you will be redirecte
 
 {% include image.html file="building/server/resolution-release/fig11-the-cas-login-page.png" alt="Browser Screen Shot" caption="Figure 11. The CAS login page" %}
 
-Note that the contents of the `name` field from the service registry are displayed at the top of the right-hand column; make sure that `CasApp Secured by CAS` is displayed here and not `HTTPS/IMAPS wildcard`. Enter a valid username and password (Active Directory or LDAP) and, upon successful authentication, the contents of `/var/www/html/secured-by-cas/index.php` will be displayed:
+Note that the contents of the `name` field from the service registry are displayed at the top of the right-hand column; make sure that `Apache Secured by CAS` is displayed here and not `HTTPS and IMAPS wildcard`. Enter a valid username and password (Active Directory or LDAP) and, upon successful authentication, the contents of `/var/www/html/secured-by-cas/index.php` will be displayed:
 
 {% include image.html file="building/server/resolution-release/fig12-the-secure-content.png" alt="Browser Screen Shot" caption="Figure 12. The \"secure\" content" %}
 

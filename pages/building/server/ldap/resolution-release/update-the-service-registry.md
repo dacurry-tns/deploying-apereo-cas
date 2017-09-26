@@ -1,6 +1,6 @@
 ---
 title: Update the service registry
-last_updated: September 1, 2017
+last_updated: September 26, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_update-the-service-registry.html
 summary:
@@ -39,14 +39,14 @@ The syntax for defining the above policies is defined in the CAS 5 *Attribute Re
 
 ## Create a service definition for the CAS client
 
-When we initially [created the service registry][building_server_service-registry_configure-the-service-registry], we created a wildcard service definition that would match any service. Now however, it makes sense to create a specific definition for our CAS client, and use that definition to release attributes to the client. Create a file called `casapp-cas-only.json` in the `etc/cas/services` directory on the master build server (***casdev-master***) with the following contents:
+When we initially [created the service registry][building_server_service-registry_configure-the-service-registry], we created a wildcard service definition that would match any service. Now however, it makes sense to create a specific definition for our CAS client, and use that definition to release attributes to the client. Create a file in the `etc/cas/services` directory on the master build server (***casdev-master***) with the following contents:
 
 ```json
 {
   "@class" : "org.apereo.cas.services.RegexRegisteredService",
   "serviceId" : "^https://casdev-casapp.newschool.edu/secured-by-cas(\\z|/.*)",
+  "name" : "Apache Secured By CAS",
   "id" : 201700830155400,
-  "name" : "CasApp Secured by CAS",
   "description" : "CAS development Apache mod_auth_cas server with username/password protection",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
@@ -54,6 +54,8 @@ When we initially [created the service registry][building_server_service-registr
   "evaluationOrder" : 1100
 }
 ```
+
+Following the naming convention introduced [earlier][building_server_service-registry_configure-the-service-registry], the name of this file should be `ApacheSecuredByCAS-201700830155400.json`. (Your `id`, and therefore that part of the filename, should use the current value for `YYYYMMDDhhmmss`.)
 
 This service definition uses a `serviceId` regular expression that matches only the URL for the `secured-by-cas` directory on the ***casdev-casapp*** server. The `(\\z|/.*)` syntax at the end matches either the empty string (`\\z`) or a slash ('/') followed by anything (`/.*`), meaning that the following will match:
 
@@ -81,6 +83,7 @@ And finally, this definition includes the "Release All" `attributeReleasePolicy`
 ## References
 
 * [CAS 5: Attribute Release Policies][casdoc-attrib-rel-pol]
+* [CAS 5: JSON Service Registry][casdoc-svc-reg-json]
 
 {% include reflinks.md %}
 {% include links.html %}

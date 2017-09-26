@@ -51,6 +51,8 @@
 [havege-project]:               https://www.irisa.fr/caps/projects/hipsor/index.php
 [human-json]:                   http://hjson.org/
 
+[invalid-filename-chars]:       https://en.wikipedia.org/wiki/Filename#Reserved_characters_and_words
+
 [java-regex-tutorial]:          http://docs.oracle.com/javase/tutorial/essential/regex/
 [json-web-key-gen]:             https://mkjwk.org/
 [json-web-key-gen-git]:         https://github.com/mitreid-connect/json-web-key-generator

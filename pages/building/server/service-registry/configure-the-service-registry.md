@@ -1,6 +1,6 @@
 ---
 title: Configure the service registry
-last_updated: September 1, 2017
+last_updated: September 26, 2017
 sidebar: main_sidebar
 permalink: building_server_service-registry_configure-the-service-registry.html
 summary:
@@ -33,7 +33,7 @@ casdev-master# mkdir etc/cas/services
 
 ## Create a service definition file
 
-For simplicity (and to avoid worrying about the details of the service registry for the moment), create a "wildcard" service definition that will allow any HTTPS- or IMAPS-based service to make use of the CAS server. Create a file called `wildcard.json` in the `etc/cas/services` directory on the master build server with the following contents:
+For simplicity (and to avoid worrying about the details of the service registry for the moment), create a "wildcard" service definition that will allow any HTTPS- or IMAPS-based service to make use of the CAS server. Create a file in the `etc/cas/services` directory on the master build server with the following contents:
 
 ```json
 {
@@ -43,11 +43,19 @@ For simplicity (and to avoid worrying about the details of the service registry 
    */
   "@class" :            "org.apereo.cas.services.RegexRegisteredService",
   "serviceId" :         "^(https|imaps)://.*",
-  "name" :              "HTTPS/IMAPS wildcard",
+  "name" :              "HTTPS and IMAPS wildcard",
   "id" :                20170828090137,
   "evaluationOrder" :   99999
 }
 ```
+
+The CAS documentation recommends the following naming convention for JSON service definition files:
+
+```json
+JSON filename = serviceName + "-" + serviceNumericId + ".json"
+```
+
+Therefore, the filename for the wildcard service definition above should be `HTTPSandIMAPSwildcard-20170828090137.json`.
 
 The CAS server uses [Human JSON][human-json] (Hjson), which relaxes JSON's strict syntax rules and also allows for the use of comments, to make it easier to write JSON service definitions by hand. (Later, we will build the [service management webapp][building_svcmgmt_overview] to maintain these files for us). The use of Hjson format for writing service definitions is optional; traditional JSON syntax is also supported.
 
@@ -65,7 +73,7 @@ The complete list of service definition properties is provided in the *Service M
         </tr>
         <tr>
             <td markdown="span">`name`</td>
-            <td markdown="span">A name for the service.</td>
+            <td markdown="span">A name for the service. Note that because the service definition filename is created based on this name (see above), the value of this field should never contain [characters that are not allowed in filenames][invalid-filename-chars].</td>
         </tr>
         <tr>
             <td markdown="span">`id`</td>

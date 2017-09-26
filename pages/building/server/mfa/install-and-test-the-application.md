@@ -1,6 +1,6 @@
 ---
 title: Install and test the application
-last_updated: September 1, 2017
+last_updated: September 26, 2017
 sidebar: main_sidebar
 permalink: building_server_mfa_install-and-test-the-application.html
 summary:
@@ -67,7 +67,7 @@ Click on the second "here" link to access the content secured by CAS and Duo, an
 
 {% include image.html file="building/server/mfa/fig14-the-cas-login-page.png" alt="Browser Screen Shot" caption="Figure 14. The CAS login page" %}
 
-Note that the contents of the `name` field from the service registry are displayed at the top of the right-hand column; make sure that `CasApp Secured by CAS and Duo` is displayed here. Enter a valid username and password (Active Directory or LDAP) that is also registered with Duo and, upon successful first-stage authentication, the Duo MFA authentication page will appear, as shown below:
+Note that the contents of the `name` field from the service registry are displayed at the top of the right-hand column; make sure that `Apache Secured by CAS and Duo` is displayed here. Enter a valid username and password (Active Directory or LDAP) that is also registered with Duo and, upon successful first-stage authentication, the Duo MFA authentication page will appear, as shown below:
 
 {% include image.html file="building/server/mfa/fig15-the-duo-authentication-page.png" alt="Browser Screen Shot" caption="Figure 15. The Duo authentication page" %}
 

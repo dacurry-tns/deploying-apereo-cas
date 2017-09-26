@@ -1,6 +1,6 @@
 ---
 title: Update the service registry
-last_updated: September 1, 2017
+last_updated: September 26, 2017
 sidebar: main_sidebar
 permalink: building_server_mfa_update-the-service-registry.html
 summary:
@@ -10,17 +10,17 @@ Although it's possible to enable MFA across the board for all services by settin
 
 ## Create a second service definition for the CAS client
 
-Make a copy of `etc/cas/services/casapp-cas-only.json` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and call it `casapp-cas-duo.json`:
+Make a copy of `etc/cas/services/ApacheSecuredByCAS-201700830155400.json` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and call it `ApacheSecuredByCASandDuo-201700831132700.json` (replace `201700831132700` with the current `YYYYMMDDhhmmss` value):
 
 ```console
 casdev-master# cd /opt/workspace/cas-overlay-template
-casdev-master# cp -p etc/cas/services/casapp-cas-only.json etc/cas/services/casapp-cas-duo.json
+casdev-master# cp -p etc/cas/services/ApacheSecuredByCAS-201700830155400.json etc/cas/services/ApacheSecuredByCASandDuo-201700831132700.json
 ```
 
-Then edit `etc/cas/services/casapp-cas-duo.json` and do the following:
+Then edit `etc/cas/services/ApacheSecuredByCASandDuo-201700831132700.json` and do the following:
 
 1. Change the `serviceId` property to reflect the path to the secure area [created in the previous step][building_server_mfa_update-the-cas-client-config].
-2. Change the `id` property to a unique value.
+2. Change the `id` property to a unique value (make sure this value matches the one in the filename).
 3. Change the `description` property to include the Duo MFA requirement.
 4. Add the `multifactorPolicy` property as shown below.
 5. Change the `evaluationOrder` property to a different value.
@@ -31,17 +31,15 @@ When done, the file should look something like this:
 {
   "@class" : "org.apereo.cas.services.RegexRegisteredService",
   "serviceId" : "^https://casdev-casapp.newschool.edu/secured-by-cas-duo(\\z|/.*)",
+  "name" : "Apache Secured By CAS and Duo",
   "id" : 201700831132700,
-  "name" : "CasApp Secured by CAS and Duo",
   "description" : "CAS development Apache mod_auth_cas server with username/password and Duo MFA protection",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
   },
   "multifactorPolicy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceMultifactorPolicy",
-    "multifactorAuthenticationProviders" : [ "java.util.LinkedHashSet", [ "mfa-duo" ] ],
-    "bypassEnabled" : false,
-    "failureMode" : "CLOSED"
+    "multifactorAuthenticationProviders" : [ "java.util.LinkedHashSet", [ "mfa-duo" ] ]
   },
   "evaluationOrder" : 1200
 }

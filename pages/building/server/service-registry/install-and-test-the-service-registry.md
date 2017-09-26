@@ -1,6 +1,6 @@
 ---
 title: Install and test the service registry
-last_updated: September 1, 2017
+last_updated: September 26, 2017
 sidebar: main_sidebar
 permalink: building_server_service-registry_install-and-test-the-service-registry.html
 summary:
@@ -19,6 +19,8 @@ casdev-master# sh /opt/scripts/cassrv-install.sh
 Installation complete.
 casdev-master#  
 ```
+
+{% include note.html content="You may want to edit `cassrv-install.sh` and change the line that reads `rm -rf etc/cas/config` (around line 10) to read `rm -rf etc/cas/config etc/cas/services` instead, to ensure that repeated installations do not leave any old service definitions lying around." %}
 
 Review the contents of the log files (`/var/log/tomcat/catalina.yyyy-mm-dd.out` and `/var/log/cas/cas.log`) for errors.
 
