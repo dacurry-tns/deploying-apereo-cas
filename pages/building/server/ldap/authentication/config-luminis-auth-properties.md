@@ -1,6 +1,6 @@
 ---
 title: Configure Luminis LDAP authentication properties
-last_updated: September 1, 2017
+last_updated: September 26, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_authentication_config-luminis-auth-properties.html
 summary:
@@ -15,8 +15,6 @@ cas.authn.ldap[1].order:                1
 cas.authn.ldap[1].name:                 Luminis LDAP
 cas.authn.ldap[1].type:                 AUTHENTICATED
 cas.authn.ldap[1].ldapUrl:              ldaps://janus.newschool.edu
-cas.authn.ldap[1].useSsl:               true
-cas.authn.ldap[1].subtreeSearch:        true
 cas.authn.ldap[1].userFilter:           uid={user}
 cas.authn.ldap[1].baseDn:               ou=People,o=cp
 cas.authn.ldap[1].bindDn:               uid=ldap_ssotest,ou=People,o=cp
@@ -49,14 +47,6 @@ The properties used above are:
         <tr>
             <td markdown="span">`ldapUrl`</td>
             <td markdown="span">The URL of the LDAP server. In our case, we use the URL of the virtual host on the F5 load balancer, which has multiple LDAP servers behind it.</td>
-        </tr>
-        <tr>
-            <td markdown="span">`useSsl`</td>
-            <td markdown="span">Whether to use TLS/SSL when communicating with LDAP. Since we specified `ldaps` in the `ldapUrl`, this should be `true`.</td>
-        </tr>
-        <tr>
-            <td markdown="span">`subtreeSearch`</td>
-            <td markdown="span">Whether to search the entire subtree of the directory rooted at the `baseDN`. Usually this should be `true`.</td>
         </tr>
         <tr>
             <td markdown="span">`userFilter`</td>

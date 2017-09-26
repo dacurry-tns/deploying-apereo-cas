@@ -1,6 +1,6 @@
 ---
 title: Configure server properties
-last_updated: September 1, 2017
+last_updated: September 26, 2017
 sidebar: main_sidebar
 permalink: building_server_configure-server-properties.html
 summary:
@@ -19,10 +19,6 @@ There are three properties that provide naming information to the CAS server:
     </colgroup>
     <tbody>
         <tr>
-            <td markdown="span">`cas.host.name`</td>
-            <td markdown="span">The host name of the computer running the CAS server. This is normally determined automatically, but can be set to a specific value when necessary (e.g., when running in a multi-node environment).</td>
-        </tr>
-        <tr>
             <td markdown="span">`cas.server.name`</td>
             <td markdown="span">The top-level URL (protocol, domain name, and port) of the web/application server running the CAS server.</td>
         </tr>
@@ -30,16 +26,21 @@ There are three properties that provide naming information to the CAS server:
             <td markdown="span">`cas.server.prefix`</td>
             <td markdown="span">The URL of the CAS web application on the web/application server. This string gets prepended to the various CAS-specific URLs used by the server.</td>
         </tr>
+        <tr>
+            <td markdown="span">`cas.host.name`</td>
+            <td markdown="span">The name of the CAS host to be appended to ticket IDs. This value is normally determined automatically, but can be explicitly set in cases where that value may be incorrect (e.g., when hosting CAS servers for multiple domains on the same host).</td>
+        </tr>
     </tbody>
 </table>
 
-Edit the file `etc/cas/config/cas.properties` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the lines for `cas.server.name` and `cas.server.prefix` (around lines 1 and 2). Replace `cas.example.org` with the host name attached to the virtual address on the load balancer's virtual interface, and remove the port part of the URL (since we're running on the standard SSL/TLS port). Then add a line to set the `cas.host.name` property to the host name attached to the virtual address on the load balancer's virtual interface, so that all three servers use the same name.
+Edit the file `etc/cas/config/cas.properties` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the lines for `cas.server.name` and `cas.server.prefix` properties at the top of the file. Set `cas.server.name` to the correct value by replacing `cas.example.org` with the host name attached to the virtual address on the load balancer's virtual interface and removing the port part of the URL (since we're running on the standard SSL/TLS port). Then, rather than duplicating that information for `cas.server.prefix`, use variable substitution to incorporate the value of `cas.server.name`:
 
 ```properties
-cas.host.name:                  casdev.newschool.edu
 cas.server.name:                https://casdev.newschool.edu
-cas.server.prefix:              https://casdev.newschool.edu/cas
+cas.server.prefix:              ${cas.server.name}/cas
 ```
+
+Since we will (eventually) have multiple servers generating tickets, we want to leave `cas.host.name` unset (the default). This will result in each ticket having a ticket ID that includes the host name of the server that actually created the ticket, which will make it easier to debug ticket issues. If we were to set `cas.host.name`, all the tickets would have the same "host name" in their ticket IDs, and it would be impossible to tell which server actually created the ticket.
 
 ## Configure ticket granting cookie encryption
 
@@ -67,21 +68,15 @@ CAS uses Spring Webflow to manage the authentication sequence, and this also nee
 
 ```properties
 cas.webflow.signing.key:
-cas.webflow.signing.keySize:      512
 cas.webflow.encryption.key:
-cas.webflow.encryption.keySize:   16
 ```
 
 Using the [JSON Web Key Generator][json-web-key-gen] again (see above), generate an `HS256` key of size `512` and enter it for the value of the `cas.webflow.signing.key` property. Generate another `HS256` key, of size `96`, and enter it for the value of the `cas.webflow.encryption.key` property. When finished, you should have something like this:
 
 ```properties
 cas.webflow.signing.key:          hGapVlP6pCzIUo_CCboRszQpvWFPazmyuWsBUOoWYqUQqMKw55al5c_EGH6VBtjpIVUqEAXcvLQjQ8HaVBEmDw
-cas.webflow.signing.keySize:      512
 cas.webflow.encryption.key:       nLMVSwhtFDIQKvBa
-cas.webflow.encryption.keySize:   16
 ```
-
-{% include note.html content="The `keySize` property for the Spring Webflow encryption key is specified in units of bytes (octets). This is different than the `keySize` properties for the Spring Webflow signing key and the TGC signing and encryption keys, which are all specified in units of bits." %}
 
 {% include tip.html content="The online JSON Web Key Generator is provided by the Mitre Corporation and the MIT Kerberos and Internet Trust Consortium, and is simply a web-based interface to the [json-web-key-generator][json-web-key-gen-git] project, also provided by Mitre/MIT. The project can be cloned from GitHub and built locally if you don't trust the online generator, or you can download and use a pre-built copy from the CAS project by running the command<br/><br/>
 <code># curl -LO https://raw.githubusercontent.com/apereo/cas/master/etc/jwk-gen.jar</code><br/><br/>

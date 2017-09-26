@@ -1,6 +1,6 @@
 ---
 title: Configure Active Directory authentication properties
-last_updated: September 1, 2017
+last_updated: September 26, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_authentication_config-ad-auth-properties.html
 summary:
@@ -15,7 +15,6 @@ cas.authn.ldap[0].order:                0
 cas.authn.ldap[0].name:                 Active Directory
 cas.authn.ldap[0].type:                 AD
 cas.authn.ldap[0].ldapUrl:              ldaps://zuul.newschool.edu
-cas.authn.ldap[0].useSsl:               true
 cas.authn.ldap[0].userFilter:           sAMAccountName={user}
 cas.authn.ldap[0].baseDn:               ou=TNSUsers,dc=tns,dc=newschool,dc=edu
 cas.authn.ldap[0].dnFormat:             cn=%s,ou=TNSUsers,dc=tns,dc=newschool,dc=edu
@@ -46,10 +45,6 @@ The properties used above are:
         <tr>
             <td markdown="span">`ldapUrl`</td>
             <td markdown="span">The URL of the Active Directory server. In our case, we use the URL of the virtual host on the F5 load balancer, which has multiple Active Directory servers behind it.</td>
-        </tr>
-        <tr>
-            <td markdown="span">`useSsl`</td>
-            <td markdown="span">Whether to use TLS/SSL when communicating with Active Directory. Since we specified `ldaps` in the `ldapUrl`, this should be `true`.</td>
         </tr>
         <tr>
             <td markdown="span">`userFilter`</td>
