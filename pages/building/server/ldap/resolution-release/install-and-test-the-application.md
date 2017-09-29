@@ -1,6 +1,6 @@
 ---
 title: Install and test the application
-last_updated: September 26, 2017
+last_updated: September 29, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_install-and-test-the-application.html
 summary:
@@ -61,9 +61,9 @@ The contents of `/var/www/html/index.php` should be displayed, looking something
 
 {% include image.html file="building/server/resolution-release/fig10-the-public-site.png" alt="Browser Screen Shot" caption="Figure 10. The \"public\" site" %}
 
-## Access the secure area
+## Access the "return all attributes" secure area
 
-Click on the "here" link to access the secure content, and you will be redirected to the CAS server login page, as shown below:
+Click on the first "here" link to access the "release all attributes" secure content, and you will be redirected to the CAS server login page, as shown below:
 
 {% include image.html file="building/server/resolution-release/fig11-the-cas-login-page.png" alt="Browser Screen Shot" caption="Figure 11. The CAS login page" %}
 
@@ -72,6 +72,14 @@ Note that the contents of the `name` field from the service registry are display
 {% include image.html file="building/server/resolution-release/fig12-the-secure-content.png" alt="Browser Screen Shot" caption="Figure 12. The \"secure\" content" %}
 
 Note that the value shown for the `REMOTE_USER` variable is the username that was entered on the CAS login page (`gnarls`), and that the attributes [configured for release][building_server_ldap_resolution-release_configure-attribute-resolution] are all shown, along with some additional values provided as part of the SAML 1.1 response from the CAS server.
+
+## Access the "return mapped attributes" secure area
+
+Click the "back" button in the browser a couple of times (or start up a new one in "incognito" or "private browsing" mode) to get back to the "public" page shown in Figure 10, and then click on the second "here" link to access the "return mapped attributes" secure area, which will display the contents of `/var/www/html/return-mapped/index.php`:
+
+{% include image.html file="building/server/resolution-release/fig13-the-mapped-content.png" alt="Browser Screen Shot" caption="Figure 13. The \"mapped\" content" %}
+
+Note that the `mail` and `givenName` attributes have been replaced with `EmailAddress` and `Formatted-Name` (spaces in attributed names are not allowed, so a '-' is inserted), but the values of the attributes are the same.
 
 ## Restart the pool servers
 

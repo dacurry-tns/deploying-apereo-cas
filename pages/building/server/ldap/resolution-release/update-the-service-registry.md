@@ -1,6 +1,6 @@
 ---
 title: Update the service registry
-last_updated: September 26, 2017
+last_updated: September 29, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_update-the-service-registry.html
 summary:
@@ -37,7 +37,7 @@ The syntax for defining the above policies is defined in the CAS 5 *Attribute Re
 
 {% include note.html content="The `cas.authn.attributeRepository.defaultAttributesToRelease` property can be set in `cas.properties` to a comma-separated list of attributes that should be released to all services, without having to list them in every service definition. We are not using this feature in our installation, because it makes it harder to determine which attributes are released to a particular service (by requiring the administrator to look in more than one location)." %}
 
-## Create a service definition for the CAS client
+## Create a "return all attributes" service definition for the CAS client
 
 When we initially [created the service registry][building_server_service-registry_configure-the-service-registry], we created a wildcard service definition that would match any service. Now however, it makes sense to create a specific definition for our CAS client, and use that definition to release attributes to the client. Create a file in the `etc/cas/services` directory on the master build server (***casdev-master***) with the following contents:
 
@@ -79,6 +79,42 @@ This service definition uses a `description` property instead of a comment to de
 The `evaluationOrder` has been given a value lower than that of the wildcard definition, so this definition will be matched first.
 
 And finally, this definition includes the "Release All" `attributeReleasePolicy` property, which means that the CAS client will receive all attributes that could be resolved for the authenticating user.
+
+## Create a "return mapped attributes" service definition for the CAS client
+
+One of the applications that we use, Ellucian's Luminis portal, expects to receive a couple of attributes with names other than the ones commonly used: instead of a `mail` attribute, it expects to receive an `EmailAddress` attribute, and instead of a `givenName` attribute, it expects to receive a `Formatted Name` attribute (despite the fact that attribute names are not supposed to contain spaces). We could have made these mappings in the `cas.properties` file, but that would then require all applications to support these unusual attribute names. So instead, we will use the "Return Mapped" attribute release policy to perform the mapping only for this application.
+
+To test this idea with our CAS client, create a file in the `etc/cas/services` directory on the master build server (***casdev-master***) with the following contents:
+
+```json
+{
+  "@class" : "org.apereo.cas.services.RegexRegisteredService",
+  "serviceId" : "^https://casdev-casapp.newschool.edu/return-mapped(\\z|/.*)",
+  "name" : "Return Mapped Test",
+  "id" : 20170927092000,
+  "description" : "Display results of a Return Mapped attribute release policy",
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
+    "allowedAttributes" : {
+      "@class" : "java.util.TreeMap",
+      "cn" : "cn",
+      "displayName" : "displayName",
+      "givenName" : "Formatted Name",
+      "mail" : "EmailAddress",
+      "memberOf" : "memberOf",
+      "role" : "role",
+      "sn" : "sn",
+      "uid" : "uid",
+      "UDC_IDENTIFIER": "UDC_IDENTIFIER"
+    }
+  },
+  "evaluationOrder" : 1150
+}
+```
+
+The name of this file should be `ReturnMappedTest-20170927092000.json`. (Your `id`, and therefore that part of the filename, should use the current value for `YYYYMMDDhhmmss`.)
+
+In this definition, the `attributeReleasePolicy` property uses the `ReturnMappedAttributeReleasePolicy` instead of the `ReturnAllAttributeReleasePolicy`; this requires us to provide a new sub-property called `allowedAttributes` that contains the list of attributes to be released. For each attribute, the attribute's name (as set in `cas.properties`) appears on the left, and the name it should be released with (the *mapped* name) *for this application only* appears on the right.
 
 ## References
 

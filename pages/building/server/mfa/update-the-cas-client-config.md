@@ -1,6 +1,6 @@
 ---
 title: Update the CAS client configuration
-last_updated: September 1, 2017
+last_updated: September 29, 2017
 sidebar: main_sidebar
 permalink: building_server_mfa_update-the-cas-client-config.html
 summary:
@@ -29,20 +29,9 @@ Leave the rest of the file unchanged.
 
 ## Update `mod_auth_cas` settings
 
-Edit the file `/etc/httpd/conf.d/cas.conf` on the client server (***casdev-casapp***) and duplicate the `<Directory>` element for the new secure content area created above:
+Edit the file `/etc/httpd/conf.d/cas.conf` on the client server (***casdev-casapp***) and create another `<Directory>` element for the new secure content area created above:
 
 ```apache
-LoadModule auth_cas_module modules/mod_auth_cas.so
-
-<Directory "/var/www/html/secured-by-cas">
-    <IfModule mod_auth_cas.c>
-        AuthType        CAS
-        CASAuthNHeader  On
-    </IfModule>
-
-    Require valid-user
-</Directory>
-
 <Directory "/var/www/html/secured-by-cas-duo">
     <IfModule mod_auth_cas.c>
         AuthType        CAS
@@ -51,16 +40,10 @@ LoadModule auth_cas_module modules/mod_auth_cas.so
 
     Require valid-user
 </Directory>
-
-<IfModule mod_auth_cas.c>
-    CASLoginUrl           https://casdev.newschool.edu/cas/login
-    CASValidateUrl        https://casdev.newschool.edu/cas/samlValidate
-    CASCookiePath         /var/cache/httpd/mod_auth_cas/
-    CASValidateSAML       On
-    CASSSOEnabled         On
-    CASDebug              Off
-</IfModule>
 ```
+
+Except for the path name of the directory, it should be identical to the other `<Directory>` elements.
+
 ## Update the public content page
 
 Update `/var/www/html/index.php` to include a link to the new secure area:
@@ -81,6 +64,8 @@ Update `/var/www/html/index.php` to include a link to the new secure area:
         <p><big>The quick brown fox jumped over the lazy dogs.</big></p>
         <p><big>Click <a href="secured-by-cas/index.php">here</a> for some
           content secured by username and password.</big></p>
+        <p><big>Click <a href="return-mapped/index.php">here</a> to see the
+          results of the "Return Mapped" attribute release policy.</big></p>
         <p><big>Click <a href="secured-by-cas-duo/index.php">here</a> for some
           content secured by username/password and Duo MFA.</big></p>
     </div>

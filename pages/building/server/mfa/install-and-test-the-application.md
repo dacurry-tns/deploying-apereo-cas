@@ -1,6 +1,6 @@
 ---
 title: Install and test the application
-last_updated: September 26, 2017
+last_updated: September 29, 2017
 sidebar: main_sidebar
 permalink: building_server_mfa_install-and-test-the-application.html
 summary:
@@ -59,21 +59,21 @@ https://casdev-casapp.newschool.edu/
 
 The contents of `/var/www/html/index.php` should be displayed, looking something like this:
 
-{% include image.html file="building/server/mfa/fig13-the-public-site.png" alt="Browser Screen Shot" caption="Figure 13. The \"public\" site" %}
+{% include image.html file="building/server/mfa/fig14-the-public-site.png" alt="Browser Screen Shot" caption="Figure 14. The \"public\" site" %}
 
 ## Access the secure area
 
 Click on the second "here" link to access the content secured by CAS and Duo, and you will be redirected to the CAS server login page, as shown below:
 
-{% include image.html file="building/server/mfa/fig14-the-cas-login-page.png" alt="Browser Screen Shot" caption="Figure 14. The CAS login page" %}
+{% include image.html file="building/server/mfa/fig15-the-cas-login-page.png" alt="Browser Screen Shot" caption="Figure 15. The CAS login page" %}
 
 Note that the contents of the `name` field from the service registry are displayed at the top of the right-hand column; make sure that `Apache Secured by CAS and Duo` is displayed here. Enter a valid username and password (Active Directory or LDAP) that is also registered with Duo and, upon successful first-stage authentication, the Duo MFA authentication page will appear, as shown below:
 
-{% include image.html file="building/server/mfa/fig15-the-duo-authentication-page.png" alt="Browser Screen Shot" caption="Figure 15. The Duo authentication page" %}
+{% include image.html file="building/server/mfa/fig16-the-duo-authentication-page.png" alt="Browser Screen Shot" caption="Figure 16. The Duo authentication page" %}
 
 Upon successful Duo authentication, the contents of `/var/www/html/secured-by-cas-duo/index.php` will be displayed:
 
-{% include image.html file="building/server/mfa/fig16-the-secure-content.png" alt="Browser Screen Shot" caption="Figure 16. The \"secure\" content" %}
+{% include image.html file="building/server/mfa/fig17-the-secure-content.png" alt="Browser Screen Shot" caption="Figure 17. The \"secure\" content" %}
 
 ## Restart the pool servers
 

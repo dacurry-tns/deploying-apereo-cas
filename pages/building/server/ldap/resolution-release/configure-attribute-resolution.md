@@ -1,6 +1,6 @@
 ---
 title: Configure attribute resolution
-last_updated: September 1, 2017
+last_updated: September 29, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_configure-attribute-resolution.html
 summary:
@@ -21,16 +21,16 @@ cas.authn.attributeRepository.ldap[0].bindDn:           cn=ldap_ssotest,ou=Servi
 cas.authn.attributeRepository.ldap[0].bindCredential:   xxxxxxxxxxxx
 cas.authn.attributeRepository.ldap[0].attributes.cn:    uid
 cas.authn.attributeRepository.ldap[0].attributes.displayName:   displayName
-cas.authn.attributeRepository.ldap[0].attributes.givenName:     Formatted Name
-cas.authn.attributeRepository.ldap[0].attributes.mail:  EmailAddress
+cas.authn.attributeRepository.ldap[0].attributes.givenName:     givenName
+cas.authn.attributeRepository.ldap[0].attributes.mail:  mail
 cas.authn.attributeRepository.ldap[0].attributes.sn:    sn
-cas.authn.attributeRepository.ldap[0].attributes.tnsGoogleAppsRole:     Role
+cas.authn.attributeRepository.ldap[0].attributes.tnsGoogleAppsRole:     role
 cas.authn.attributeRepository.ldap[0].attributes.tnsIDNumber:   cn
 ```
 
 The first six properties should be self-explanatory (or see the descriptions in the previous sections). Note that while we did not need to use a bind account to authenticate users against Active Directory, we do need to use one to resolve attributes.
 
-The `.attributes.` properties specify, for each attribute, its name in the directory, and the name it should be given when sending it to the client application (the *mapped* name). For example, in the set of attributes above, the Active Directory attributes called `cn`, `displayName`, `givenName`, `mail`, `sn`, `tnsGoogleAppsRole`, and `tnsIDNumber` will be mapped to the names `uid`, `displayName`, `Formatted Name`, `EmailAddress`, `sn`, `Role`, and `cn` respectively when they are sent to client applications.
+The `.attributes.` properties specify, for each attribute, its name in the directory, and the name it should be given when sending it to the client application (the *mapped* name). For example, in the set of attributes above, the Active Directory attributes `cn`, `displayName`, `givenName`, `mail`, `sn`, `tnsGoogleAppsRole`, and `tnsIDNumber` will be retrieved and may be sent to client applications. The attributes named `cn`, `tnsGoogleAppsRole`, and `tnsIDNumber` will be released with the mapped names `uid`, `role`, and `cn` respectively, while the other attributes' names will not be changed.
 
 ## Configure Luminis LDAP attribute resolution
 
@@ -45,8 +45,8 @@ cas.authn.attributeRepository.ldap[1].bindDn:           uid=ldap_ssotest,ou=Peop
 cas.authn.attributeRepository.ldap[1].bindCredential:   xxxxxxxxxxxx
 cas.authn.attributeRepository.ldap[1].attributes.cn:    cn
 cas.authn.attributeRepository.ldap[1].attributes.displayName:   displayName
-cas.authn.attributeRepository.ldap[1].attributes.givenName:     Formatted Name
-cas.authn.attributeRepository.ldap[1].attributes.mail:  EmailAddress
+cas.authn.attributeRepository.ldap[1].attributes.givenName:     givenName
+cas.authn.attributeRepository.ldap[1].attributes.mail:  mail
 cas.authn.attributeRepository.ldap[1].attributes.sn:    sn
 cas.authn.attributeRepository.ldap[1].attributes.udcid: UDC_IDENTIFIER
 cas.authn.attributeRepository.ldap[1].attributes.uid:   uid
@@ -54,9 +54,9 @@ cas.authn.attributeRepository.ldap[1].attributes.uid:   uid
 
 As above, the first six properties should be self-explanatory. The list of attributes to be released is similar to, but not the same as, the list for Active Directory, above.
 
-One difference is that the two directories use different attributes for the same information. Luminis LDAP stores the username in the `uid` attribute and the student/employee ID number in the `cn` attribute. Active Directory on the other hand, stores the username in the `cn` attribute, and stores the student/employee ID number in a custom attribute called `tnsIDNumber`. To make things match up (the reason for this will become apparent below), the Active Directory configuration above switches things around to match Luminis LDAP by mapping `cn` to `uid` and `tnsIDNumber` as `cn`.
+One difference is that the two directories use different attributes for the same information. Luminis LDAP stores the username in the `uid` attribute and the student/employee ID number in the `cn` attribute. Active Directory on the other hand, stores the username in the `cn` attribute, and stores the student/employee ID number in a custom attribute called `tnsIDNumber`. To make things match up so the same data is in the same attribute from both directories (the reason for this will become apparent below), the Active Directory configuration above switches things around to match Luminis LDAP by mapping `cn` to `uid` and `tnsIDNumber` as `cn`.
 
-Another difference is that Active Directory has an attribute called `tnsGoogleAppsRole` (released as `Role`) that Luminis LDAP doesn't have, and Luminis LDAP has an attribute called `udcid` (released as `UDC_IDENTIFIER`) that Active Directory doesn't have.
+Another difference is that Active Directory has an attribute called `tnsGoogleAppsRole` (released as `role`) that Luminis LDAP doesn't have, and Luminis LDAP has an attribute called `udcid` (released as `UDC_IDENTIFIER`) that Active Directory doesn't have.
 
 ## Configure an attribute merging strategy
 
@@ -83,7 +83,7 @@ Although CAS will only authenticate a user against the first directory (accordin
     </tbody>
 </table>
 
-In our case, we have a mix of users who are in Active Directory only, users who are in Luminis LDAP only, and users who are in both directories. Most of the time the duplicated attributes have the same value in both directories, but there are just enough exceptions to make `MERGE` a bad idea (applications that don't expect to receive multi-valued attributes don't handle them well). We have therefore (somewhat arbitrarily) decided that for users in both directories, the values of their attributes in Active Directory should "win," and since Active Directory is the first repository, we want to use the `ADD` strategy. So, add the following line to `etc/cas/config/cas.properties`:
+In our case, we have a mix of users who are only in Active Directory, users who are only in Luminis LDAP, and users who are in both directories. Most of the time the duplicated attributes have the same value in both directories, but there are just enough exceptions to make `MERGE` a bad idea (applications that don't expect to receive multi-valued attributes don't handle them well). We have therefore (somewhat arbitrarily) decided that for users in both directories, the values of their attributes in Active Directory should "win," and since Active Directory is the first repository, we want to use the `ADD` strategy. So, add the following line to `etc/cas/config/cas.properties`:
 
 ```
 cas.authn.attributeRepository.merger:                   ADD
