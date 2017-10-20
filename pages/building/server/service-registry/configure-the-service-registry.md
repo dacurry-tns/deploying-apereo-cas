@@ -1,6 +1,6 @@
 ---
 title: Configure the service registry
-last_updated: September 26, 2017
+last_updated: October 20, 2017
 sidebar: main_sidebar
 permalink: building_server_service-registry_configure-the-service-registry.html
 summary:
@@ -10,16 +10,16 @@ Configuring the service registry requires defining the registry location in `cas
 
 ## Define the service registry in `cas.properties`
 
-Edit the file `etc/cas/cas.properties` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the commented-out definition of the service registry location (around line 9):
+Edit the file `etc/cas/cas.properties` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the commented-out definition of the service registry location (around line 7):
 
 ```properties
-# cas.serviceRegistry.config.location: classpath:/services
+# cas.serviceRegistry.json.location: classpath:/services
 ```
 
 Uncomment the line and change the property's value to `file:/etc/cas/services`:
 
 ```properties
-cas.serviceRegistry.config.location:    file:/etc/cas/services
+cas.serviceRegistry.json.location:    file:/etc/cas/services
 ```
 
 ## Create the service registry directory
