@@ -1,6 +1,6 @@
 ---
 title: Configure server properties
-last_updated: September 26, 2017
+last_updated: October 20, 2017
 sidebar: main_sidebar
 permalink: building_server_configure-server-properties.html
 summary:
@@ -36,8 +36,8 @@ There are three properties that provide naming information to the CAS server:
 Edit the file `etc/cas/config/cas.properties` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the lines for `cas.server.name` and `cas.server.prefix` properties at the top of the file. Set `cas.server.name` to the correct value by replacing `cas.example.org` with the host name attached to the virtual address on the load balancer's virtual interface and removing the port part of the URL (since we're running on the standard SSL/TLS port). Then, rather than duplicating that information for `cas.server.prefix`, use variable substitution to incorporate the value of `cas.server.name`:
 
 ```properties
-cas.server.name:                https://casdev.newschool.edu
-cas.server.prefix:              ${cas.server.name}/cas
+cas.server.name:                      https://casdev.newschool.edu
+cas.server.prefix:                    ${cas.server.name}/cas
 ```
 
 Since we will (eventually) have multiple servers generating tickets, we want to leave `cas.host.name` unset (the default). This will result in each ticket having a ticket ID that includes the host name of the server that actually created the ticket, which will make it easier to debug ticket issues. If we were to set `cas.host.name`, all the tickets would have the same "host name" in their ticket IDs, and it would be impossible to tell which server actually created the ticket.
@@ -47,19 +47,19 @@ Since we will (eventually) have multiple servers generating tickets, we want to 
 The CAS server uses a ticket granting cookie in the browser to maintain login state during single sign-on sessions. A client can present this cookie to CAS in lieu of primary credentials and, provided it is valid, will be authenticated. The contents of the cookie should be encrypted to protect them, and when running in a multi-node environment, all of the nodes must use the same keys. Add the following lines to `etc/cas/config/cas.properties`:
 
 ```properties
-cas.tgc.secure:                 true
-cas.tgc.signingKey:
-cas.tgc.encryptionKey:
+cas.tgc.secure:                       true
+cas.tgc.crypto.signing.key:
+cas.tgc.crypto.encryption.key:
 ```
 
-Now visit the [JSON Web Key Generator][json-web-key-gen] and click on the "Shared Secret" tab. Enter `512` into the "Key Size" field, select `HS256` from the "Algorithm" drop-down, and click the "New Key" button. Copy the value of the `k` parameter from the "Key" dialog box and enter it as the value for the `cas.tgc.signingKey` property.
+Now visit the [JSON Web Key Generator][json-web-key-gen] and click on the "Shared Secret" tab. Enter `512` into the "Key Size" field, select `HS256` from the "Algorithm" drop-down, and click the "New Key" button. Copy the value of the `k` parameter from the "Key" dialog box and enter it as the value for the `cas.tgc.crypto.signing.key` property.
 
-Then enter `256` into the "Key Size" field, select `HS256` from the "Algorithm" drop-down, and click "New Key" again, and enter that value for the `cas.tgc.encryptionKey` property. When finished, you should have something like this:
+Then enter `256` into the "Key Size" field, select `HS256` from the "Algorithm" drop-down, and click "New Key" again, and enter that value for the `cas.tgc.crypto.encryption.key` property. When finished, you should have something like this:
 
 ```properties
-cas.tgc.secure:                 true
-cas.tgc.signingKey:             bMpP_eHgIsL1kz_cnxEqYo9Bb384V70eZIvWctQ5V6xTO4P6wsQjFlglD9OSQNlFdb0mT2Q1E3qXdo05_tzrjQ
-cas.tgc.encryptionKey:          r88iOMdbRMLOkITV54kax4WgadTdzUYSBXNhOp_oqS0
+cas.tgc.secure:                       true
+cas.tgc.crypto.signing.key:           bMpP_eHgIsL1kz_cnxEqYo9Bb384V70eZIvWctQ5V6xTO4P6wsQjFlglD9OSQNlFdb0mT2Q1E3qXdo05_tzrjQ
+cas.tgc.crypto.encryption.key:        r88iOMdbRMLOkITV54kax4WgadTdzUYSBXNhOp_oqS0
 ```
 
 ## Configure Spring Webflow encryption
@@ -67,15 +67,25 @@ cas.tgc.encryptionKey:          r88iOMdbRMLOkITV54kax4WgadTdzUYSBXNhOp_oqS0
 CAS uses Spring Webflow to manage the authentication sequence, and this also needs to be encrypted. Add the following lines to `etc/cas/config/cas.properties`:
 
 ```properties
-cas.webflow.signing.key:
-cas.webflow.encryption.key:
+cas.webflow.crypto.signing.key:
+cas.webflow.crypto.encryption.key:
 ```
 
-Using the [JSON Web Key Generator][json-web-key-gen] again (see above), generate an `HS256` key of size `512` and enter it for the value of the `cas.webflow.signing.key` property. Generate another `HS256` key, of size `96`, and enter it for the value of the `cas.webflow.encryption.key` property. When finished, you should have something like this:
+Using the [JSON Web Key Generator][json-web-key-gen] again (see above), generate an `HS256` key of size `512` and enter it for the value of the `cas.webflow.crypto.signing.key` property.
+
+Unlike the ticket granting cookie encryption key above, the encryption key for Spring WebFlow is not a JSON Web Key. Rather, it's a randomly-generated string of 16 (by default) octets, Base64-encoded. An easy way to generate this key is to use `openssl`:
+
+```console
+casdev-master# openssl rand -base64 16
+Kmj1JJSPOTSiagI4gCxhUA==
+casdev-master#  
+```
+
+Enter the output from the `openssl` command for the value of the `cas.webflow.crypto.encryption.key` property. When finished, you should have something like this:
 
 ```properties
-cas.webflow.signing.key:          hGapVlP6pCzIUo_CCboRszQpvWFPazmyuWsBUOoWYqUQqMKw55al5c_EGH6VBtjpIVUqEAXcvLQjQ8HaVBEmDw
-cas.webflow.encryption.key:       nLMVSwhtFDIQKvBa
+cas.webflow.crypto.signing.key:       hGapVlP6pCzIUo_CCboRszQpvWFPazmyuWsBUOoWYqUQqMKw55al5c_EGH6VBtjpIVUqEAXcvLQjQ8HaVBEmDw
+cas.webflow.crypto.encryption.key:    Kmj1JJSPOTSiagI4gCxhUA==
 ```
 
 {% include tip.html content="The online JSON Web Key Generator is provided by the Mitre Corporation and the MIT Kerberos and Internet Trust Consortium, and is simply a web-based interface to the [json-web-key-generator][json-web-key-gen-git] project, also provided by Mitre/MIT. The project can be cloned from GitHub and built locally if you don't trust the online generator, or you can download and use a pre-built copy from the CAS project by running the command<br/><br/>
