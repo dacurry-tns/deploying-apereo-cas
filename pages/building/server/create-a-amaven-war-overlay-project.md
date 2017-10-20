@@ -1,6 +1,6 @@
 ---
 title: Create a Maven WAR overlay project
-last_updated: September 1, 2017
+last_updated: October 20, 2017
 sidebar: main_sidebar
 permalink: building_server_create-a-amaven-war-overlay-project.html
 summary:
@@ -35,13 +35,13 @@ The GitHub repository for the overlay template project contains multiple version
 ```console
 casdev-master# cd cas-overlay-template
 casdev-master# grep '<cas.version>' pom.xml
-        <cas.version>5.1.3</cas.version>
+        <cas.version>5.2.0</cas.version>
 casdev-master#  
 ```
 
 to determine which version of the CAS server the `master` branch will build. In most circumstances (including this project), the `master` branch of the template is the one you want to use (skip ahead to the next section, [Create a local branch][building_server_create-a-amaven-war-overlay-project.html#localbranch]).
 
-If the `master` version of the template isn't for the version of the CAS server you want to work with (for example, if you want to experiment with the version currently under development), run the command
+If the `master` version of the template isn't for the version of the CAS server you want to work with (for example, if you want to work with an older version, or experiment with the version currently under development), run the command
 
 ```console
 casdev-master# git branch -a
@@ -49,31 +49,32 @@ casdev-master# git branch -a
   remotes/origin/4.1
   remotes/origin/4.2
   remotes/origin/5.0.x
+  remotes/origin/5.1
   remotes/origin/5.2
   remotes/origin/HEAD -> origin/master
   remotes/origin/master
 casdev-master#  
 ```
 
-to obtain a list of available branches, and then run the `git checkout` command to switch to that branch. For example, to switch to the `5.2` branch, run the command
+to obtain a list of available branches, and then run the `git checkout` command to switch to that branch. For example, to switch back to the `5.1` branch, run the command
 
 ```console
-casdev-master# git checkout 5.2
-Branch 5.2 set up to track remote branch 5.2 from origin.
-Switched to a new branch '5.2'
+casdev-master# git checkout 5.1
+Branch 5.1 set up to track remote branch 5.1 from origin.
+Switched to a new branch '5.1'
 casdev-master#  grep '<cas.version>' pom.xml
-        <cas.version>5.2.0-RC2</cas.version>
-casdev-master#
+        <cas.version>5.1.5</cas.version>
+casdev-master#  
 ```
 
-to switch branches (it's not necessary to type the `remotes/origin/` part of the branch name). This will download additional/changed files from GitHub to the local disk. You can switch back to the "stable" version of the template by checking out the `master` branch again:
+to switch branches (it's not necessary to type the `remotes/origin/` part of the branch name). This will download additional/changed files from GitHub to the local disk. You can switch back to the current version of the template by checking out the `master` branch again:
 
 ```console
 casdev-master# git checkout master
 Switched to branch 'master'
 casdev-master#  grep '<cas.version>' pom.xml
-        <cas.version>5.1.3</cas.version>
-casdev-master#
+        <cas.version>5.2.0</cas.version>
+casdev-master#  
 ```
 
 ## Create a local branch {#localbranch}
