@@ -1,6 +1,6 @@
 ---
 title: Configuring LDAP attribute resolution and release
-last_updated: September 1, 2017
+last_updated: October 23, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_overview.html
 summary: To enable client applications to obtain information about authenticated users, the CAS server must be configured to resolve attributes and release them to the clients.
@@ -10,7 +10,7 @@ Version 3 of the CAS protocol, which was first supported by CAS 4.0, contains na
 
 ## Add the SAML 1.1 dependency to the project object model
 
-To add SAML 1.1 support to the CAS server, edit the file `pom.xml` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the dependencies section (around line 61), which should look something like this:
+To add SAML 1.1 support to the CAS server, edit the file `pom.xml` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the dependencies section (around line 69), which should look something like this:
 
 ```xml
 <dependencies>

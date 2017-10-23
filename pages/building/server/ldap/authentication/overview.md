@@ -1,6 +1,6 @@
 ---
 title: Configuring LDAP authentication
-last_updated: September 1, 2017
+last_updated: October 23, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_authentication_overview.html
 summary: The LDAP module will be added to the CAS server to enable it to authenticate users against LDAP directories
@@ -10,7 +10,7 @@ The CAS server's LDAP integration enables the server to authenticate users again
 
 ## Add the LDAP dependency to the project object model
 
-To add LDAP support to the CAS server, edit the file `pom.xml` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the dependencies section (around line 61), which should look something like this:
+To add LDAP support to the CAS server, edit the file `pom.xml` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the dependencies section (around line 69), which should look something like this:
 
 ```xml
 <dependencies>

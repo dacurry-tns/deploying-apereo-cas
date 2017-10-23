@@ -1,6 +1,6 @@
 ---
 title: Adding MFA support
-last_updated: September 1, 2017
+last_updated: October 23, 2017
 sidebar: main_sidebar
 permalink: building_server_mfa_overview.html
 summary: Multifactor authentication from Duo Security will be used to secure access to applications containing sensitive information or providing sensitive functionality.
@@ -17,7 +17,7 @@ The New School is currently in the early stages of rolling out [Duo Security][du
 
 ## Add the Duo dependency to the project object model
 
-To add Duo support to the CAS server, edit the file `pom.xml` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the dependencies section (around line 61), which should look something like this:
+To add Duo support to the CAS server, edit the file `pom.xml` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the dependencies section (around line 69), which should look something like this:
 
 ```xml
 <dependencies>

@@ -1,6 +1,6 @@
 ---
 title: Add the feature and rebuild the server
-last_updated: September 1, 2017
+last_updated: October 23, 2017
 sidebar: main_sidebar
 permalink: building_server_service-registry_add-feature-and-rebuild.html
 summary:
@@ -10,7 +10,7 @@ Adding the JSON service registry feature requires adding a new dependency to the
 
 ## Add the JSON service registry to the project object model
 
-To add JSON service registry support to the CAS server, edit the file `pom.xml` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the `dependencies` section (around line 61), which should look something like this:
+To add JSON service registry support to the CAS server, edit the file `pom.xml` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and locate the `dependencies` section (around line 69), which should look something like this:
 
 ```xml
 <dependencies>
