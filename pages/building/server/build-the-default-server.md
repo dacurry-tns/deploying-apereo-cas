@@ -1,6 +1,6 @@
 ---
 title: Build the default server
-last_updated: September 1, 2017
+last_updated: October 24, 2017
 sidebar: main_sidebar
 permalink: building_server_build-the-default-server.html
 summary:
@@ -47,12 +47,12 @@ The end result of a successful build will be a subdirectory called `target` that
 ```console
 casdev-master# ls -asl target
 total 77148
-    0 drwxr-xr-x. 5 root root       61 Mon dd hh:mm .
-    4 drwxr-xr-x. 6 root root     4096 Mon dd hh:mm ..
-    0 drwxr-xr-x. 5 root root       45 Mon dd hh:mm cas
-89076 -rw-r--r--. 1 root root 91210098 Mon dd hh:mm cas.war
-    0 drwxr-xr-x. 2 root root       27 Mon dd hh:mm maven-archiver
-    0 drwxr-xr-x. 3 root root       17 Mon dd hh:mm war
+    0 drwxr-xr-x. 5 root root       61 Mmm dd hh:mm .
+    4 drwxr-xr-x. 6 root root     4096 Mmm dd hh:mm ..
+    0 drwxr-xr-x. 5 root root       45 Mmm dd hh:mm cas
+89076 -rw-r--r--. 1 root root 91210098 Mmm dd hh:mm cas.war
+    0 drwxr-xr-x. 2 root root       27 Mmm dd hh:mm maven-archiver
+    0 drwxr-xr-x. 3 root root       17 Mmm dd hh:mm war
 casdev-master#  
 ```
 
