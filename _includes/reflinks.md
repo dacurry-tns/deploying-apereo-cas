@@ -34,6 +34,7 @@
 [casdoc-mfa-duo-props]:         https://apereo.github.io/cas/5.1.x/installation/Configuration-Properties.html#duosecurity
 [casdoc-mfa-props]:             https://apereo.github.io/cas/5.1.x/installation/Configuration-Properties.html#multifactor-authentication
 [casdoc-saml-protocol]:         https://apereo.github.io/cas/5.1.x/protocol/SAML-Protocol.html
+[casdoc-config-saml2-auth]:     https://apereo.github.io/cas/development/installation/Configuring-SAML2-Authentication.html
 [casdoc-sec-guide]:             https://apereo.github.io/cas/5.1.x/planning/Security-Guide.html
 [casdoc-sso-cookie]:            https://apereo.github.io/cas/5.1.x/installation/Configuring-SSO-Session-Cookie.html
 [casdoc-srvlt-cont]:            https://apereo.github.io/cas/5.1.x/installation/Configuring-Servlet-Container.html
@@ -72,6 +73,7 @@
 
 [qualys-ssltest]:               https://www.ssllabs.com/ssltest/
 
+[shibboleth-idp]:               https://www.shibboleth.net/products/identity-provider/
 [shibboleth-sp]:                https://www.shibboleth.net/products/service-provider/
 
 [testssl-sh]:                   https://github.com/drwetter/testssl.sh

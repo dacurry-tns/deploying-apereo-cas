@@ -256,6 +256,15 @@ entries:
     - title: Overview
       url: /building_server_saml_overview.html
       output: web, pdf
+    - title: Adjust Tomcat settings and create the metadata cache directory
+      url: /building_server_saml_adjust-tomcat-and-create-metadata-cache.html
+      output: web, pdf
+    - title: Install and test the IdP
+      url: /building_server_saml_install-and-test-the-idp.html
+      output: web, pdf
+    - title: Commit changes to Git
+      url: /building_server_saml_commit-changes-to-git.html
+      output: web, pdf
 
   - title: Building the SAML client
     output: web, pdf
