@@ -1,12 +1,12 @@
 ---
-title: Adjust Tomcat settings and create the metadata cache directory
-last_updated: October 24, 2017
+title: Update the server configuration and create the metadata cache directory
+last_updated: October 26, 2017
 sidebar: main_sidebar
-permalink: building_server_saml_adjust-tomcat-and-create-metadata-cache.html
+permalink: building_server_saml_update-configuration-and-create-metadata-cache.html
 summary:
 ---
 
-The CAS server's IdP functionality requires some adjustments to Tomcat's settings, and the creation of a cache directory where SAML2 metadata can be stored.
+The CAS server's IdP functionality requires some adjustments to Tomcat's settings, a couple of new CAS property settings, and the creation of a cache directory where SAML2 metadata can be stored.
 
 ## Adjust Tomcat settings
 
@@ -37,6 +37,17 @@ Add the `maxHttpHeaderSize` and `maxPostSize` attributes to the connector defini
     SSLEnabled="true" maxHttpHeaderSize="2097152" maxPostSize="2097152"
     connectionTimeout="20000" maxThreads="150">
 ```
+
+## Configure SAML IdP properties
+
+Add the following settings to `etc/cas/config/cas.properties` in the `cas-overlay-template` directory on the master build server (***casdev-master***) to configure the SAML IdP:
+
+```properties
+cas.authn.samlIdp.entityId:             ${cas.server.prefix}/idp
+cas.authn.samlIdp.scope:                newschool.edu
+```
+
+The `entityId` parameter is the URL by which the IdP is known to clients (SPs). The `scope` parameter identifies the "scope" in which attributes returned by the IdP apply; this is typically a DNS domain.
 
 ## Create the metadata cache directory
 

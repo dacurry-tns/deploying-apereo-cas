@@ -1,6 +1,6 @@
 ---
 title: Install and test the IdP
-last_updated: October 24, 2017
+last_updated: October 26, 2017
 sidebar: main_sidebar
 permalink: building_server_saml_install-and-test-the-idp.html
 summary:
@@ -27,10 +27,10 @@ To check that the IdP functionality is working, use `curl` to request the IdP's 
 ```console
 casdev-master# curl -k https://casdev-master.newschool.edu:8443/cas/idp/metadata
 <?xml version="1.0" encoding="UTF-8"?>
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://cas.example.org/idp">
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://casdev.newschool.edu/idp">
     <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
         <Extensions>
-            <shibmd:Scope regexp="false">example.org</shibmd:Scope>
+            <shibmd:Scope regexp="false">newschool.edu</shibmd:Scope>
         </Extensions>
         <KeyDescriptor use="signing">
             <ds:KeyInfo>
@@ -100,7 +100,7 @@ dgmL7gvBapJdfV1aNaz1MfC6REKnE5P+SZboEBGWpe8pGFSBKvyNAnfzCKNycSzH
     <!--
     <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
         <Extensions>
-            <shibmd:Scope regexp="false">example.org</shibmd:Scope>
+            <shibmd:Scope regexp="false">newschool.edu</shibmd:Scope>
         </Extensions>
         <KeyDescriptor use="signing">
             <ds:KeyInfo>
