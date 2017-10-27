@@ -1,8 +1,8 @@
 ---
-title: Update the server configuration and create the metadata cache directory
-last_updated: October 26, 2017
+title: Update the server configuration
+last_updated: October 27, 2017
 sidebar: main_sidebar
-permalink: building_server_saml_update-configuration-and-create-metadata-cache.html
+permalink: building_server_saml_update-server-configuration.html
 summary:
 ---
 
