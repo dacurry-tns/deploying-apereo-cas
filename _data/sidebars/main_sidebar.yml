@@ -272,6 +272,27 @@ entries:
     - title: Overview
       url: /building_samlclient_overview.html
       output: web, pdf
+    - title: Install the Shibboleth SP
+      url: /building_samlclient_install-the-shibboleth-sp.html
+      output: web, pdf
+    - title: Configure HTTPD to use the SP
+      url: /building_samlclient_configure-httpd-to-use-the-sp.html
+      output: web, pdf
+    - title: Configure the SP
+      url: /building_samlclient_configure-the-sp.html
+      output: web, pdf
+    - title: Update the service registry
+      url: /building_samlclient_update-the-service-registry.html
+      output: web, pdf
+    - title: Install and test the application
+      url: /building_samlclient_install-and-test-the-application.html
+      output: web, pdf
+    - title: Adding MFA to SAML authentication
+      url: /building_samlclient_adding-mfa-to-saml-auth.html
+      output: web, pdf
+    - title: Commit changes to Git
+      url: /building_samlclient_commit-changes-to-git.html
+      output: web, pdf
 
   - title: Building the service management webapp
     output: web, pdf

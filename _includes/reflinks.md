@@ -67,14 +67,20 @@
 
 [ntp-pool-lists]:               http://www.pool.ntp.org/zone/@
 
+[opensuse-build-svc]:           https://build.opensuse.org/
+
 [php-timezones]:                http://php.net/manual/en/timezones.php
 
 [pro-git]:                      https://git-scm.com/book/
 
 [qualys-ssltest]:               https://www.ssllabs.com/ssltest/
 
+[shibboleth-attr-naming]:       https://wiki.shibboleth.net/confluence/display/SHIB2/AttributeNaming
 [shibboleth-idp]:               https://www.shibboleth.net/products/identity-provider/
 [shibboleth-sp]:                https://www.shibboleth.net/products/service-provider/
+[shibboleth-spconfig]:          https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPConfiguration
+[shibboleth-splinuxrpm]:        https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPLinuxInstall
+[shibinstallfest]:              https://spaces.internet2.edu/pages/viewpage.action?pageId=30245422
 
 [testssl-sh]:                   https://github.com/drwetter/testssl.sh
 
