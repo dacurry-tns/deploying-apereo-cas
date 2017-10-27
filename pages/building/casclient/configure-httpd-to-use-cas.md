@@ -1,6 +1,6 @@
 ---
 title: Configure HTTPD to use CAS
-last_updated: September 1, 2017
+last_updated: October 27, 2017
 sidebar: main_sidebar
 permalink: building_casclient_configure-httpd-to-use-cas.html
 summary:
@@ -125,4 +125,4 @@ Then create a directory, `/var/www/html/secured-by-cas`, and create the file `/v
 </html>
 ```
 
-The PHP code here will display environment variables that are used by `mod_auth_cas` to pass attributes returned by the CAS server along to the web application.
+The PHP code here will display environment variables and HTTP headers that are used by `mod_auth_cas` to pass attributes returned by the CAS server along to the web application.
