@@ -1,6 +1,6 @@
 ---
 title: Update the CAS client configuration
-last_updated: September 29, 2017
+last_updated: October 27, 2017
 sidebar: main_sidebar
 permalink: building_server_mfa_update-the-cas-client-config.html
 summary:
@@ -17,7 +17,7 @@ casdev-casapp# cd /var/www/html
 casdev-casapp# cp -rp secured-by-cas secured-by-cas-duo
 ```
 
-Then edit the file `secured-by-cas-duo/index.html` and update the paragraph of text to reflect the requirements to view it:
+Then edit the file `secured-by-cas-duo/index.php` and update the paragraph of text to reflect the requirements to view it:
 
 ```html
 <p><big>This is some secure content. You should not be able to see it
