@@ -108,13 +108,13 @@ Then create a directory, `/var/www/html/secured-by-cas`, and create the file `/v
         echo "<pre>";
 
         if (array_key_exists('REMOTE_USER', $_SERVER)) {
-            echo "REMOTE_USER = " . $_SERVER['REMOTE_USER'] . "</br>";
+            echo "REMOTE_USER = " . $_SERVER['REMOTE_USER'] . "<br>";
         }
 
         $headers = getallheaders();
         foreach ($headers as $key => $value) {
             if (strpos($key, 'CAS_') === 0) {
-                echo substr($key, 4) . " = " . $value . "</br>";
+                echo substr($key, 4) . " = " . $value . "<br>";
             }
         }
 
