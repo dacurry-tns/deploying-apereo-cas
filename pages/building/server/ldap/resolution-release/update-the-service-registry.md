@@ -1,6 +1,6 @@
 ---
 title: Update the service registry
-last_updated: September 29, 2017
+last_updated: November 2, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_update-the-service-registry.html
 summary:
@@ -46,7 +46,7 @@ When we initially [created the service registry][building_server_service-registr
   "@class" : "org.apereo.cas.services.RegexRegisteredService",
   "serviceId" : "^https://casdev-casapp.newschool.edu/secured-by-cas(\\z|/.*)",
   "name" : "Apache Secured By CAS",
-  "id" : 201700830155400,
+  "id" : 1504122840,
   "description" : "CAS development Apache mod_auth_cas server with username/password protection",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
@@ -55,7 +55,7 @@ When we initially [created the service registry][building_server_service-registr
 }
 ```
 
-Following the naming convention introduced [earlier][building_server_service-registry_configure-the-service-registry], the name of this file should be `ApacheSecuredByCAS-201700830155400.json`. (Your `id`, and therefore that part of the filename, should use the current value for `YYYYMMDDhhmmss`.)
+Following the naming convention introduced [earlier][building_server_service-registry_configure-the-service-registry], the name of this file should be `ApacheSecuredByCAS-1504122840.json`. The `id` value, and therefore that part of the filename, should use the current date and time represented as a timestamp (as output by `date +%s`) or as `YYYYMMDDhhmmss`.
 
 This service definition uses a `serviceId` regular expression that matches only the URL for the `secured-by-cas` directory on the ***casdev-casapp*** server. The `(\\z|/.*)` syntax at the end matches either the empty string (`\\z`) or a slash ('/') followed by anything (`/.*`), meaning that the following will match:
 
@@ -91,7 +91,7 @@ To test this idea with our CAS client, create a file in the `etc/cas/services` d
   "@class" : "org.apereo.cas.services.RegexRegisteredService",
   "serviceId" : "^https://casdev-casapp.newschool.edu/return-mapped(\\z|/.*)",
   "name" : "Return Mapped Test",
-  "id" : 20170927092000,
+  "id" : 1506518400,
   "description" : "Display results of a Return Mapped attribute release policy",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
@@ -112,7 +112,7 @@ To test this idea with our CAS client, create a file in the `etc/cas/services` d
 }
 ```
 
-The name of this file should be `ReturnMappedTest-20170927092000.json`. (Your `id`, and therefore that part of the filename, should use the current value for `YYYYMMDDhhmmss`.)
+The name of this file should be `ReturnMappedTest-1506518400.json`. The `id` value, and therefore that part of the filename, should use the current date and time represented as a timestamp (as output by `date +%s`) or as `YYYYMMDDhhmmss`.
 
 In this definition, the `attributeReleasePolicy` property uses the `ReturnMappedAttributeReleasePolicy` instead of the `ReturnAllAttributeReleasePolicy`; this requires us to provide a new sub-property called `allowedAttributes` that contains the list of attributes to be released. For each attribute, the attribute's name (as set in `cas.properties`) appears on the left, and the name it should be released with (the *mapped* name) *for this application only* appears on the right.
 

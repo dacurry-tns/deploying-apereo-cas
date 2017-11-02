@@ -10,14 +10,14 @@ Although it's possible to enable MFA across the board for all services by settin
 
 ## Create a second service definition for the CAS client
 
-Make a copy of `etc/cas/services/ApacheSecuredByCAS-201700830155400.json` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and call it `ApacheSecuredByCASandDuo-201700831132700.json` (replace `201700831132700` with the current `YYYYMMDDhhmmss` value):
+Make a copy of `etc/cas/services/ApacheSecuredByCAS-1504122840.json` in the `cas-overlay-template` directory on the master build server (***casdev-master***) and call it `ApacheSecuredByCASandDuo-1504200420.json` (replace `1504200420` with the current `date +%s` or `YYYYMMDDhhmmss` value):
 
 ```console
 casdev-master# cd /opt/workspace/cas-overlay-template
-casdev-master# cp -p etc/cas/services/ApacheSecuredByCAS-201700830155400.json etc/cas/services/ApacheSecuredByCASandDuo-201700831132700.json
+casdev-master# cp -p etc/cas/services/ApacheSecuredByCAS-1504122840.json etc/cas/services/ApacheSecuredByCASandDuo-201700831132700.json
 ```
 
-Then edit `etc/cas/services/ApacheSecuredByCASandDuo-201700831132700.json` and do the following:
+Then edit `etc/cas/services/ApacheSecuredByCASandDuo-1504200420.json` and do the following:
 
 1. Change the `serviceId` property to reflect the path to the secure area [created in the previous step][building_server_mfa_update-the-cas-client-config].
 2. Change the `id` property to a unique value (make sure this value matches the one in the filename).
@@ -32,7 +32,7 @@ When done, the file should look something like this:
   "@class" : "org.apereo.cas.services.RegexRegisteredService",
   "serviceId" : "^https://casdev-casapp.newschool.edu/secured-by-cas-duo(\\z|/.*)",
   "name" : "Apache Secured By CAS and Duo",
-  "id" : 201700831132700,
+  "id" : 1504200420,
   "description" : "CAS development Apache mod_auth_cas server with username/password and Duo MFA protection",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"

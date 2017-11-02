@@ -1,6 +1,6 @@
 ---
 title: Configure the service registry
-last_updated: October 20, 2017
+last_updated: November 2, 2017
 sidebar: main_sidebar
 permalink: building_server_service-registry_configure-the-service-registry.html
 summary:
@@ -44,7 +44,7 @@ For simplicity (and to avoid worrying about the details of the service registry 
   "@class" :            "org.apereo.cas.services.RegexRegisteredService",
   "serviceId" :         "^(https|imaps)://.*",
   "name" :              "HTTPS and IMAPS wildcard",
-  "id" :                20170828090137,
+  "id" :                1503925297,
   "evaluationOrder" :   99999
 }
 ```
@@ -55,7 +55,7 @@ The CAS documentation recommends the following naming convention for JSON servic
 JSON filename = serviceName + "-" + serviceNumericId + ".json"
 ```
 
-Therefore, the filename for the wildcard service definition above should be `HTTPSandIMAPSwildcard-20170828090137.json`.
+Therefore, the filename for the wildcard service definition above should be `HTTPSandIMAPSwildcard-1503925297.json`.
 
 The CAS server uses [Human JSON][human-json] (Hjson), which relaxes JSON's strict syntax rules and also allows for the use of comments, to make it easier to write JSON service definitions by hand. (Later, we will build the [service management webapp][building_svcmgmt_overview] to maintain these files for us). The use of Hjson format for writing service definitions is optional; traditional JSON syntax is also supported.
 
@@ -77,7 +77,7 @@ The complete list of service definition properties is provided in the *Service M
         </tr>
         <tr>
             <td markdown="span">`id`</td>
-            <td markdown="span">Unique numeric identifier for the service definition. An easy way to ensure that these identifiers are unique is to use the date and time the service definition was created, in the form `YYYYMMDDhhmmss`.</td>
+            <td markdown="span">Unique numeric identifier for the service definition. An easy way to ensure that these identifiers are unique is to use the date and time the service definition was created. This can be represented as `YYYYMMDDhhmmss` or, for a more "anonymous" representation, as a timestamp (number of seconds since the epoch), which can be obtained with the command `date +%s`.</td>
         </tr>
         <tr>
             <td markdown="span">`evaluationOrder`</td>

@@ -1,6 +1,6 @@
 ---
 title: Update the service registry
-last_updated: October 27, 2017
+last_updated: November 2, 2017
 sidebar: main_sidebar
 permalink: building_samlclient_update-the-service-registry.html
 summary:
@@ -10,14 +10,14 @@ Just like CAS-enabled services, SAML-enabled services must be defined in the ser
 
 ## Create a service definition for the SAML client
 
-Create the file `etc/cas/services/ApacheSecuredBySAML-20171026110500.json` (replace `20171026110500` with the current `YYYYMMDDhhmmss` value) in the `cas-overlay-template` directory on the master build server (***casdev-master***) with the following contents:
+Create the file `etc/cas/services/ApacheSecuredBySAML-1509030300.json` (replace `1509030300` with the current `date +%s` or `YYYYMMDDhhmmss` value) in the `cas-overlay-template` directory on the master build server (***casdev-master***) with the following contents:
 
 ```json
 {
   "@class" : "org.apereo.cas.support.saml.services.SamlRegisteredService",
   "serviceId" : "https://casdev-samlsp.newschool.edu/shibboleth",
   "name" : "Apache Secured By SAML",
-  "id" : 20171026110500,
+  "id" : 1509030300,
   "description" : "CAS development Apache mod_shib/shibd server with username/password protection",
   "metadataLocation" : "https://casdev-samlsp.newschool.edu/Shibboleth.sso/Metadata",
   "attributeReleasePolicy" : {
