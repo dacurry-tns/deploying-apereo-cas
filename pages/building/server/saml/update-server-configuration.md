@@ -69,5 +69,9 @@ tar xzf /tmp/cassrv-files.tgz etc/cas
 chmod g+w etc/cas/saml
 ```
 
+## References
+
+* [CAS 5: Configuration Properties: SAML IdP][casdoc-saml-idp-props]
+
 {% include reflinks.md %}
 {% include links.html %}

@@ -24,6 +24,7 @@
 [casdoc-cas-clients]:           https://apereo.github.io/cas/development/integration/CAS-Clients.html
 [casdoc-config-auth]:           https://apereo.github.io/cas/development/installation/Configuring-Authentication-Components.html
 [casdoc-config-prin-res]:       https://apereo.github.io/cas/development/installation/Configuring-Principal-Resolution.html
+[casdoc-config-saml2-auth]:     https://apereo.github.io/cas/development/installation/Configuring-SAML2-Authentication.html
 [casdoc-ha-guide]:              https://apereo.github.io/cas/development/planning/High-Availability-Guide.html
 [casdoc-inst-req]:              https://apereo.github.io/cas/development/planning/Installation-Requirements.html
 [casdoc-ldap-auth]:             https://apereo.github.io/cas/development/installation/LDAP-Authentication.html
@@ -34,7 +35,7 @@
 [casdoc-mfa-duo-props]:         https://apereo.github.io/cas/development/installation/Configuration-Properties.html#duosecurity
 [casdoc-mfa-props]:             https://apereo.github.io/cas/development/installation/Configuration-Properties.html#multifactor-authentication
 [casdoc-saml-protocol]:         https://apereo.github.io/cas/development/protocol/SAML-Protocol.html
-[casdoc-config-saml2-auth]:     https://apereo.github.io/cas/development/installation/Configuring-SAML2-Authentication.html
+[casdoc-saml-idp-props]:        https://apereo.github.io/cas/development/installation/Configuration-Properties.html#saml-idp
 [casdoc-sec-guide]:             https://apereo.github.io/cas/development/planning/Security-Guide.html
 [casdoc-sso-cookie]:            https://apereo.github.io/cas/development/installation/Configuring-SSO-Session-Cookie.html
 [casdoc-srvlt-cont]:            https://apereo.github.io/cas/development/installation/Configuring-Servlet-Container.html
