@@ -259,6 +259,9 @@ entries:
     - title: Update the server configuration
       url: /building_server_saml_update-server-configuration.html
       output: web, pdf
+    - title: Update the service registry
+      url: /building_server_saml_update-the-service-registry.html
+      output: web, pdf
     - title: Install and test the IdP
       url: /building_server_saml_install-and-test-the-idp.html
       output: web, pdf
