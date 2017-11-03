@@ -23,7 +23,9 @@
 [casdoc-auth-merge-props]:      https://apereo.github.io/cas/development/installation/Configuration-Properties.html#merging-strategies
 [casdoc-cas-clients]:           https://apereo.github.io/cas/development/integration/CAS-Clients.html
 [casdoc-config-auth]:           https://apereo.github.io/cas/development/installation/Configuring-Authentication-Components.html
+[casdoc-config-cas-ep]:         https://apereo.github.io/cas/development/installation/Configuration-Properties.html#cas-endpoints
 [casdoc-config-prin-res]:       https://apereo.github.io/cas/development/installation/Configuring-Principal-Resolution.html
+[casdoc-config-sb-ep]:          https://apereo.github.io/cas/development/installation/Configuration-Properties.html#spring-boot-endpoints
 [casdoc-config-saml2-auth]:     https://apereo.github.io/cas/development/installation/Configuring-SAML2-Authentication.html
 [casdoc-ha-guide]:              https://apereo.github.io/cas/development/planning/High-Availability-Guide.html
 [casdoc-inst-req]:              https://apereo.github.io/cas/development/planning/Installation-Requirements.html
@@ -34,6 +36,7 @@
 [casdoc-mfa-duo]:               https://apereo.github.io/cas/development/installation/DuoSecurity-Authentication.html
 [casdoc-mfa-duo-props]:         https://apereo.github.io/cas/development/installation/Configuration-Properties.html#duosecurity
 [casdoc-mfa-props]:             https://apereo.github.io/cas/development/installation/Configuration-Properties.html#multifactor-authentication
+[casdoc-mon-stats]:             https://apereo.github.io/cas/development/installation/Monitoring-Statistics.html
 [casdoc-saml-protocol]:         https://apereo.github.io/cas/development/protocol/SAML-Protocol.html
 [casdoc-saml-idp-props]:        https://apereo.github.io/cas/development/installation/Configuration-Properties.html#saml-idp
 [casdoc-sec-guide]:             https://apereo.github.io/cas/development/planning/Security-Guide.html
@@ -43,6 +46,8 @@
 [casdoc-svc-reg-json]:          https://apereo.github.io/cas/development/installation/JSON-Service-Management.html
 [casdoc-war-overlay]:           https://apereo.github.io/cas/development/installation/Maven-Overlay-Installation.html
 [casdoc-webflow-sess]:          https://apereo.github.io/cas/development/installation/Webflow-Customization-Sessions.html
+
+[code-beautify-json-pp]:        https://codebeautify.org/jsonviewer
 
 [digital-ocean-openssl]:        https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
 [duo-security]:                 https://duo.com/

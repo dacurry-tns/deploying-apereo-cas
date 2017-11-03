@@ -297,6 +297,25 @@ entries:
       url: /building_samlclient_commit-changes-to-git.html
       output: web, pdf
 
+  - title: Enabling the dashboard (adminpages)
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /building_server_dashboard_overview.html
+      output: web, pdf
+    - title: Configure admin pages properties
+      url: /building_server_dashboard_configure-admin-pages-properties.html
+      output: web, pdf
+    - title: Update the service registry
+      url: /building_server_dashboard_update-the-service-registry.html
+      output: web, pdf
+    - title: Install and test the application
+      url: /building_server_dashboard_install-and-test-the-application.html
+      output: web, pdf
+    - title: Update the load balancer service monitor
+      url: /building_server_dashboard_update-the-load-balancer-service-monitor.html
+      output: web, pdf
+
   - title: Building the service management webapp
     output: web, pdf
     folderitems:
