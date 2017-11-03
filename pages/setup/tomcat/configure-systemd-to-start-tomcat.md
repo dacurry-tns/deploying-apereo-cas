@@ -1,6 +1,6 @@
 ---
 title: Configure <code>systemd</code> to start Tomcat
-last_updated: September 1, 2017
+last_updated: November 3, 2017
 sidebar: main_sidebar
 permalink: setup_tomcat_configure-systemd-to-start-tomcat.html
 summary:
@@ -30,7 +30,7 @@ Environment='JAVA_HOME=/usr/lib/jvm/java-openjdk'
 Environment='CATALINA_PID=/var/run/tomcat.pid'
 Environment='CATALINA_HOME=/opt/tomcat/latest'
 Environment='CATALINA_BASE=/opt/tomcat/latest'
-Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -XX:+UseParallelGC -server'
+Environment='CATALINA_OPTS=-Xms512M -Xmx2048M -XX:+UseParallelGC -server'
 
 # Needed to make use of Tomcat Native Library
 Environment='LD_LIBRARY_PATH=/opt/tomcat/latest/lib'
