@@ -1,12 +1,12 @@
 ---
 title: Update the service registry
-last_updated: November 2, 2017
+last_updated: November 6, 2017
 sidebar: main_sidebar
 permalink: building_server_saml_update-the-service-registry.html
 summary:
 ---
 
-When the CAS server starts and initializes the SAML IdP, it creates a new (undocumented, as of this writing) endpoint, `${cas.server.prefix}/idp/profile/SAML2/Callback`. It then checks the service registry to see if there is an existing service definition whose `serviceId` will match then endpoint and allow access. If there isn't one, the CAS server will create a new service definition for the endpoint, and save it to the service registry. If the CAS server does not have permission to create new entries in the services registry for whatever reason, then the save will fail, and the server will not start. The error messages in the CAS log file will be somewhat cryptic in this case, because they won't refer to SAML or the IdP at all. But the relevant lines will look something like this:
+When the CAS server starts and initializes the SAML IdP, it creates a new (undocumented, as of this writing) endpoint, `${cas.server.prefix}/idp/profile/SAML2/Callback`. It then checks the service registry to see if there is an existing service definition whose `serviceId` will match then endpoint and allow access. If there isn't one, the CAS server will create a new service definition for the endpoint, and save it to the service registry. If the CAS server does not have permission to create new entries in the service registry for whatever reason, then the save will fail, and the server will not start. The error messages in the CAS log file will be somewhat cryptic in this case, because they won't refer to SAML or the IdP at all. But the relevant lines will look something like this:
 
 ```
 =============================================================
@@ -24,7 +24,7 @@ SERVER IP ADDRESS: unknown
 Caused by: java.io.FileNotFoundException: /etc/cas/services/RegexRegisteredService-6805904835673174978.json (Permission denied)
 ```  
 
-As luck would have it, back when we [first set up our services registry][building_server_service-registry_overview], we created a "wildcard" service definition (`HTTPSandIMAPSwildcard-1503925297.json`) that will match the endpoint above, so the CAS server will not create a new service definition and try to save it in the registry. However, while a wildcard service definition is fine in a development or test environment, we won't have such a thing in our production environment.
+As luck would have it, back when we [first set up our service registry][building_server_service-registry_overview], we created a "wildcard" service definition (`HTTPSandIMAPSwildcard-1503925297.json`) that will match the endpoint above, so the CAS server will not create a new service definition and try to save it in the registry. However, while a wildcard service definition is fine in a development or test environment, we won't have such a thing in our production environment.
 
 ## Create a service definition for the IdP endpoint
 
