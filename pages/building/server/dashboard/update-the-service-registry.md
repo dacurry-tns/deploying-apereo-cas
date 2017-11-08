@@ -1,6 +1,6 @@
 ---
 title: Update the service registry
-last_updated: November 3, 2017
+last_updated: November 8, 2017
 sidebar: main_sidebar
 permalink: building_server_dashboard_update-the-service-registry.html
 summary:
@@ -10,7 +10,7 @@ Since we are using the CAS server to protect the endpoints, we need to create a 
 
 ## Create a service definition for the dashboard
 
-Create the file `CASAdminDashboard-1509646291.json` (replace `1509646291` with the current `date +%s` or `YYYYMMDDhhmmss` value) in the `cas-overlay-template` directory on the master build server (***casdev-master***) with the following contents:
+Create the file `etc/cas/services/CASAdminDashboard-1509646291.json` (replace `1509646291` with the current `date +%s` or `YYYYMMDDhhmmss` value) in the `cas-overlay-template` directory on the master build server (***casdev-master***) with the following contents:
 
 ```json
 {
