@@ -131,7 +131,7 @@ entries:
       url: /building_server_overview.html
       output: web, pdf
     - title: Create a Maven WAR overlay project
-      url: /building_server_create-a-amaven-war-overlay-project.html
+      url: /building_server_create-a-maven-war-overlay-project.html
       output: web, pdf
     - title: Build the default server
       url: /building_server_build-the-default-server.html
@@ -315,12 +315,36 @@ entries:
     - title: Update the load balancer service monitor
       url: /building_server_dashboard_update-the-load-balancer-service-monitor.html
       output: web, pdf
+    - title: Commit changes to Git
+      url: /building_server_dashboard_commit-changes-to-git.html
+      output: web, pdf
 
   - title: Building the service management webapp
     output: web, pdf
     folderitems:
     - title: Overview
       url: /building_svcmgmt_overview.html
+      output: web, pdf
+    - title: Create a Maven WAR overlay project
+      url: /building_svcmgmt_create-a-maven-war-overlay-project.html
+      output: web, pdf
+    - title: Build the webapp
+      url: /building_svcmgmt_build-the-webapp.html
+      output: web, pdf
+    - title: Configure webapp properties
+      url: /building_svcmgmt_configure-webapp-properties.html
+      output: web, pdf
+    - title: Configure logging settings
+      url: /building_svcmgmt_configure-logging-settings.html
+      output: web, pdf
+    - title: Update the service registry
+      url: /building_svcmgmt_update-the-service-registry.html
+      output: web, pdf
+    - title: Install and test the webapp
+      url: /building_svcmgmt_install-and-test-the-webapp.html
+      output: web, pdf
+    - title: Commit changes to Git
+      url: /building_svcmgmt_commit-changes-to-git.html
       output: web, pdf
 
   - title: Customizing the CAS user interface

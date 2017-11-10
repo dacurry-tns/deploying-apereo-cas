@@ -27,6 +27,7 @@
 [casdoc-config-prin-res]:       https://apereo.github.io/cas/development/installation/Configuring-Principal-Resolution.html
 [casdoc-config-sb-ep]:          https://apereo.github.io/cas/development/installation/Configuration-Properties.html#spring-boot-endpoints
 [casdoc-config-saml2-auth]:     https://apereo.github.io/cas/development/installation/Configuring-SAML2-Authentication.html
+[casdoc-config-svcmgmt-app]:    https://apereo.github.io/cas/development/installation/Configuration-Properties.html#management-webapp
 [casdoc-ha-guide]:              https://apereo.github.io/cas/development/planning/High-Availability-Guide.html
 [casdoc-inst-req]:              https://apereo.github.io/cas/development/planning/Installation-Requirements.html
 [casdoc-ldap-auth]:             https://apereo.github.io/cas/development/installation/LDAP-Authentication.html
@@ -43,6 +44,7 @@
 [casdoc-sso-cookie]:            https://apereo.github.io/cas/development/installation/Configuring-SSO-Session-Cookie.html
 [casdoc-srvlt-cont]:            https://apereo.github.io/cas/development/installation/Configuring-Servlet-Container.html
 [casdoc-svc-mgmt]:              https://apereo.github.io/cas/development/installation/Service-Management.html
+[casdoc-svc-mgmt-webapp]:       https://apereo.github.io/cas/development/installation/Installing-ServicesMgmt-Webapp.html
 [casdoc-svc-reg-json]:          https://apereo.github.io/cas/development/installation/JSON-Service-Management.html
 [casdoc-war-overlay]:           https://apereo.github.io/cas/development/installation/Maven-Overlay-Installation.html
 [casdoc-webflow-sess]:          https://apereo.github.io/cas/development/installation/Webflow-Customization-Sessions.html
