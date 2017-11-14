@@ -1,6 +1,6 @@
 ---
 title: Configure attribute resolution
-last_updated: September 29, 2017
+last_updated: November 14, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_configure-attribute-resolution.html
 summary:
@@ -15,6 +15,7 @@ Add the following lines to `etc/cas/config/cas.properties` in the `cas-overlay-t
 ```properties
 cas.authn.attributeRepository.ldap[0].order:            0
 cas.authn.attributeRepository.ldap[0].ldapUrl:          ldaps://zuul.newschool.edu
+cas.authn.attributeRepository.ldap[0].validatePeriod:   270
 cas.authn.attributeRepository.ldap[0].userFilter:       sAMAccountName={user}
 cas.authn.attributeRepository.ldap[0].baseDn:           ou=TNSUsers,dc=tns,dc=newschool,dc=edu
 cas.authn.attributeRepository.ldap[0].bindDn:           cn=ldap_ssotest,ou=Service,ou=Users,ou=Enterprise Support,dc=tns,dc=newschool,dc=edu
@@ -28,7 +29,7 @@ cas.authn.attributeRepository.ldap[0].attributes.tnsGoogleAppsRole:     role
 cas.authn.attributeRepository.ldap[0].attributes.tnsIDNumber:   cn
 ```
 
-The first six properties should be self-explanatory (or see the descriptions in the previous sections). Note that while we did not need to use a bind account to authenticate users against Active Directory, we do need to use one to resolve attributes.
+The first seven properties should be self-explanatory (or see the descriptions in the previous sections). Note that while we did not need to use a bind account to authenticate users against Active Directory, we do need to use one to resolve attributes.
 
 The `.attributes.` properties specify, for each attribute, its name in the directory, and the name it should be given when sending it to the client application (the *mapped* name). For example, in the set of attributes above, the Active Directory attributes `cn`, `displayName`, `givenName`, `mail`, `sn`, `tnsGoogleAppsRole`, and `tnsIDNumber` will be retrieved and may be sent to client applications. The attributes named `cn`, `tnsGoogleAppsRole`, and `tnsIDNumber` will be released with the mapped names `uid`, `role`, and `cn` respectively, while the other attributes' names will not be changed.
 
@@ -39,6 +40,7 @@ Add the following lines to `etc/cas/config/cas.properties` to enable CAS to reso
 ```properties
 cas.authn.attributeRepository.ldap[1].order:            1
 cas.authn.attributeRepository.ldap[1].ldapUrl:          ldaps://janus.newschool.edu
+cas.authn.attributeRepository.ldap[1].validatePeriod:   270
 cas.authn.attributeRepository.ldap[1].userFilter:       uid={user}
 cas.authn.attributeRepository.ldap[1].baseDn:           ou=People,o=cp
 cas.authn.attributeRepository.ldap[1].bindDn:           uid=ldap_ssotest,ou=People,o=cp
@@ -52,7 +54,7 @@ cas.authn.attributeRepository.ldap[1].attributes.udcid: UDC_IDENTIFIER
 cas.authn.attributeRepository.ldap[1].attributes.uid:   uid
 ```
 
-As above, the first six properties should be self-explanatory. The list of attributes to be released is similar to, but not the same as, the list for Active Directory, above.
+As above, the first seven properties should be self-explanatory. The list of attributes to be released is similar to, but not the same as, the list for Active Directory, above.
 
 One difference is that the two directories use different attributes for the same information. Luminis LDAP stores the username in the `uid` attribute and the student/employee ID number in the `cn` attribute. Active Directory on the other hand, stores the username in the `cn` attribute, and stores the student/employee ID number in a custom attribute called `tnsIDNumber`. To make things match up so the same data is in the same attribute from both directories (the reason for this will become apparent below), the Active Directory configuration above switches things around to match Luminis LDAP by mapping `cn` to `uid` and `tnsIDNumber` as `cn`.
 

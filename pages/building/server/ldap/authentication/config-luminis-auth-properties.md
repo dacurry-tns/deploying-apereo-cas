@@ -1,6 +1,6 @@
 ---
 title: Configure Luminis LDAP authentication properties
-last_updated: September 26, 2017
+last_updated: November 14, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_authentication_config-luminis-auth-properties.html
 summary:
@@ -15,6 +15,7 @@ cas.authn.ldap[1].order:                1
 cas.authn.ldap[1].name:                 Luminis LDAP
 cas.authn.ldap[1].type:                 AUTHENTICATED
 cas.authn.ldap[1].ldapUrl:              ldaps://janus.newschool.edu
+cas.authn.ldap[1].validatePeriod:       270
 cas.authn.ldap[1].userFilter:           uid={user}
 cas.authn.ldap[1].baseDn:               ou=People,o=cp
 cas.authn.ldap[1].bindDn:               uid=ldap_ssotest,ou=People,o=cp
@@ -47,6 +48,10 @@ The properties used above are:
         <tr>
             <td markdown="span">`ldapUrl`</td>
             <td markdown="span">The URL of the LDAP server. In our case, we use the URL of the virtual host on the F5 load balancer, which has multiple LDAP servers behind it.</td>
+        </tr>
+        <tr>
+            <td markdown="span">`validatePeriod`</td>
+            <td markdown="span">The LDAP module periodically validates the connections in its connection pool. But the default setting for how often to do this (600 seconds) is longer than the idle timeout on the F5 load balancer that fronts the LDAP servers (300 seconds), which results in lots of warning messages being written to the CAS log file (one per connection every ten minutes). Reducing the validation period to something shorter than the load balancer idle timeout eliminates these messages.</td>
         </tr>
         <tr>
             <td markdown="span">`userFilter`</td>

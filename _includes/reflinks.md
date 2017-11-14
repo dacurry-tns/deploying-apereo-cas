@@ -32,6 +32,7 @@
 [casdoc-inst-req]:              https://apereo.github.io/cas/development/planning/Installation-Requirements.html
 [casdoc-ldap-auth]:             https://apereo.github.io/cas/development/installation/LDAP-Authentication.html
 [casdoc-ldap-auth-props]:       https://apereo.github.io/cas/development/installation/Configuration-Properties.html#ldap-authentication-1
+[casdoc-ldap-passivators]:      https://apereo.github.io/cas/development/installation/Configuration-Properties.html#passivators
 [casdoc-logging]:               https://apereo.github.io/cas/development/installation/Logging.html
 [casdoc-mfa]:                   https://apereo.github.io/cas/development/installation/Configuring-Multifactor-Authentication.html
 [casdoc-mfa-duo]:               https://apereo.github.io/cas/development/installation/DuoSecurity-Authentication.html

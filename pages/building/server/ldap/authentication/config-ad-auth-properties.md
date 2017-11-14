@@ -1,6 +1,6 @@
 ---
 title: Configure Active Directory authentication properties
-last_updated: September 26, 2017
+last_updated: November 14, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_authentication_config-ad-auth-properties.html
 summary:
@@ -15,6 +15,8 @@ cas.authn.ldap[0].order:                0
 cas.authn.ldap[0].name:                 Active Directory
 cas.authn.ldap[0].type:                 AD
 cas.authn.ldap[0].ldapUrl:              ldaps://zuul.newschool.edu
+cas.authn.ldap[0].validatePeriod:       270
+cas.authn.ldap[0].poolPassivator:       NONE
 cas.authn.ldap[0].userFilter:           sAMAccountName={user}
 cas.authn.ldap[0].baseDn:               ou=TNSUsers,dc=tns,dc=newschool,dc=edu
 cas.authn.ldap[0].dnFormat:             cn=%s,ou=TNSUsers,dc=tns,dc=newschool,dc=edu
@@ -45,6 +47,14 @@ The properties used above are:
         <tr>
             <td markdown="span">`ldapUrl`</td>
             <td markdown="span">The URL of the Active Directory server. In our case, we use the URL of the virtual host on the F5 load balancer, which has multiple Active Directory servers behind it.</td>
+        </tr>
+        <tr>
+            <td markdown="span">`validatePeriod`</td>
+            <td markdown="span">The LDAP module periodically validates the connections in its connection pool. But the default setting for how often to do this (600 seconds) is longer than the idle timeout on the F5 load balancer that fronts the LDAP servers (300 seconds), which results in lots of warning messages being written to the CAS log file (one per connection every ten minutes). Reducing the validation period to something shorter than the load balancer idle timeout eliminates these messages.</td>
+        </tr>
+        <tr>
+            <td markdown="span">`poolPassivator`</td>
+            <td markdown="span">[Passivators][casdoc-ldap-passivators] help manage LDAP connection pools. However, the default value for this property, `BIND`, does not work with the `AD` authenticator type, because there is no bind credential to use (the authenticator binds as the user being authenticated). Therefore, tihs setting is needed to disable the passivator.</td>
         </tr>
         <tr>
             <td markdown="span">`userFilter`</td>
