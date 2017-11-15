@@ -1,6 +1,6 @@
 ---
 title: Configure admin pages properties
-last_updated: November 3, 2017
+last_updated: November 15, 2017
 sidebar: main_sidebar
 permalink: building_server_dashboard_configure-admin-pages-properties.html
 summary:
@@ -39,8 +39,10 @@ cas.adminPagesSecurity.ip=127\.0\.0\.1
 The value of this property is a regular expression that is matched against the IP address of the incoming request. If there is a match, access is granted; if there is no match, access is denied. Change the setting to allow access from whatever address(es) should have access. In our case, we will allow access from (a) the IT department office subnet (`192.168.50.0/24`), and (b) the internal interfaces of the F5 load balancers (`192.168.1.10`, `192.168.1.20`) (more on the reason for this later):
 
 ```properties
-cas.adminPagesSecurity.ip:              ^192\.168\.(50\.[0-9]{1,3}|1\.[12]0)$
+cas.adminPagesSecurity.ip:              ^192\\.168\\.(50\\.[0-9]{1,3}|1\\.[12]0)$
 ```
+
+The backslashes are doubled because the backslash is a special character in Java properties files; doubling them results in a backslash actually being put into the regular expression (which causes the '.' to match a literal '.' instead of any character).
 
 ### Mark the endpoints "not sensitive"
 
