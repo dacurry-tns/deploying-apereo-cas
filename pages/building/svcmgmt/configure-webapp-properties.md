@@ -1,6 +1,6 @@
 ---
 title: Configure webapp properties
-last_updated: November 8, 2017
+last_updated: December 20, 2017
 sidebar: main_sidebar
 permalink: building_svcmgmt_configure-webapp-properties.html
 summary:
@@ -34,7 +34,7 @@ cas.mgmt.serverName:                   ${cas.server.name}
 Like the dashboard, the services management webapp uses a separate users file to list the users who should be able to access it (after authenticating through the CAS server) and the role(s) they should have. Locate the line for the `cas.mgmt.userPropertiesFile` property (around line 7) and set it the same value as the `cas.adminPagesSecurity.users` property in the `cas.properties` file:
 
 ```properties
-cas.mgmt.userPropertiesFile            file:/etc/cas/config/admusers.properties
+cas.mgmt.userPropertiesFile:           file:/etc/cas/config/admusers.properties
 ```
 
 As discussed [previously][building_server_dashboard_configure-admin-pages-properties.html#create-the-admusersproperties-file], users in this file can have one or two roles assigned, making it possible to use different roles for the dashboard and the webapp. For simplicity, we will stick with the `ROLE_ADMIN` role, which is used out-of-the-box by both the dashboard and the webapp.
