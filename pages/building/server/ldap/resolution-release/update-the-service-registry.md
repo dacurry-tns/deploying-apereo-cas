@@ -1,6 +1,6 @@
 ---
 title: Update the service registry
-last_updated: November 2, 2017
+last_updated: December 20, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_update-the-service-registry.html
 summary:
@@ -74,7 +74,7 @@ https://casdev-casapp.newschool.edu/some/other/path
 https://casdev-master.newschool.edu/secured-by-cas
 ```
 
-This service definition uses a `description` property instead of a comment to describe the service; this way the definition will appear in the [service management webapp][building_svcmgmt_overview].
+This service definition uses a `description` property instead of a comment to describe the service; this way the definition will appear in the [services management webapp][building_svcmgmt_overview].
 
 The `evaluationOrder` has been given a value lower than that of the wildcard definition, so this definition will be matched first.
 

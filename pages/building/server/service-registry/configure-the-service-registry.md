@@ -1,6 +1,6 @@
 ---
 title: Configure the service registry
-last_updated: November 2, 2017
+last_updated: December 20, 2017
 sidebar: main_sidebar
 permalink: building_server_service-registry_configure-the-service-registry.html
 summary:
@@ -57,7 +57,7 @@ JSON filename = serviceName + "-" + serviceNumericId + ".json"
 
 Therefore, the filename for the wildcard service definition above should be `HTTPSandIMAPSwildcard-1503925297.json`.
 
-The CAS server uses [Human JSON][human-json] (Hjson), which relaxes JSON's strict syntax rules and also allows for the use of comments, to make it easier to write JSON service definitions by hand. (Later, we will build the [service management webapp][building_svcmgmt_overview] to maintain these files for us). The use of Hjson format for writing service definitions is optional; traditional JSON syntax is also supported.
+The CAS server uses [Human JSON][human-json] (Hjson), which relaxes JSON's strict syntax rules and also allows for the use of comments, to make it easier to write JSON service definitions by hand. (Later, we will build the [services management webapp][building_svcmgmt_overview] to maintain these files for us). The use of Hjson format for writing service definitions is optional; traditional JSON syntax is also supported.
 
 The complete list of service definition properties is provided in the *Service Management* chapter of the CAS documentation, but the "interesting" fields in the definition above are:
 

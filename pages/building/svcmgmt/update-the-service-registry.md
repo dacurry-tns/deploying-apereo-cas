@@ -6,7 +6,7 @@ permalink: building_svcmgmt_update-the-service-registry.html
 summary:
 ---
 
-Since we are using the CAS server to protect the service management webapp, we need to create a service definition for it.
+Since we are using the CAS server to protect the services management webapp, we need to create a service definition for it.
 
 ## Create a service definition for the webapp
 

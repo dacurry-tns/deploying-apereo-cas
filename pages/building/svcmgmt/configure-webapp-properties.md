@@ -60,7 +60,7 @@ Delete (or comment out) these lines.
 
 ## Configure the JSON service registry
 
-In order for the service management webapp to manage the services registry used by the CAS server, it has to know where it is. Add a new property, `cas.serviceRegistry.json.location`, and set it to the same value as the property of the same name in `cas.properties`:
+In order for the services management webapp to manage the services registry used by the CAS server, it has to know where it is. Add a new property, `cas.serviceRegistry.json.location`, and set it to the same value as the property of the same name in `cas.properties`:
 
 ```properties
 cas.serviceRegistry.json.location:     file:/etc/cas/services
