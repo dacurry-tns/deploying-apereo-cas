@@ -1,6 +1,6 @@
 ---
 title: Configure TLS/SSL settings
-last_updated: September 1, 2017
+last_updated: December 20, 2017
 sidebar: main_sidebar
 permalink: setup_httpd-php_configure-tlsssl-php-settings.html
 summary:
@@ -115,7 +115,7 @@ Check that the HTTPD configuration files edited above do not have any syntax err
 ```console
 casdev-casapp# apachectl configtest
 Syntax OK
-casdev-casapp#
+casdev-casapp#  
 ```
 
 ## Configure PHP settings

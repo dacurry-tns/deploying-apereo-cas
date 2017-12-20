@@ -1,6 +1,6 @@
 ---
 title: Harden the installation
-last_updated: September 1, 2017
+last_updated: December 20, 2017
 sidebar: main_sidebar
 permalink: setup_tomcat_harden-the-installation.html
 summary:
@@ -51,7 +51,7 @@ casdev-master# for dir in logs temp work
 > chmod -R u+rwX,g+rX,o= .
 > chmod -R g-w .
 > done
-casdev-master#
+casdev-master#  
 ```
 
 to set the proper file ownerships and permissions. Note that, as discussed above, some of the directories are owned by `root`, while others are owned by `tomcat`.

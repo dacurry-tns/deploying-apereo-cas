@@ -1,6 +1,6 @@
 ---
 title: Configure attribute resolution
-last_updated: November 14, 2017
+last_updated: December 20, 2017
 sidebar: main_sidebar
 permalink: building_server_ldap_resolution-release_configure-attribute-resolution.html
 summary:
@@ -87,7 +87,7 @@ Although CAS will only authenticate a user against the first directory (accordin
 
 In our case, we have a mix of users who are only in Active Directory, users who are only in Luminis LDAP, and users who are in both directories. Most of the time the duplicated attributes have the same value in both directories, but there are just enough exceptions to make `MERGE` a bad idea (applications that don't expect to receive multi-valued attributes don't handle them well). We have therefore (somewhat arbitrarily) decided that for users in both directories, the values of their attributes in Active Directory should "win," and since Active Directory is the first repository, we want to use the `ADD` strategy. So, add the following line to `etc/cas/config/cas.properties`:
 
-```
+```properties
 cas.authn.attributeRepository.merger:                   ADD
 ```
 

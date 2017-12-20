@@ -1,6 +1,6 @@
 ---
 title: Configure Duo authentication
-last_updated: September 1, 2017
+last_updated: December 20, 2017
 sidebar: main_sidebar
 permalink: building_server_mfa_configure-duo-authentication.html
 summary:
@@ -38,17 +38,17 @@ The `duoApiHost`, `duoIntegrationKey`, and `duoSecretKey` values should be copie
 
 The `duoApplicationKey` value is a string, at least 40 characters long, that is generated locally and is *not* shared with Duo. The CAS documentation offers the procedure below for generating this string:
 
-```console
-casdev-master# python
-Python 2.7.5 (default, Aug  2 2016, 04:20:16)
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="ni">casdev-master# </span><span class="nc">python</span><span class="kv">
+</span>Python 2.7.5 (default, Aug  2 2016, 04:20:16)
 [GCC 4.8.5 20150623 (Red Hat 4.8.5-4)] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
->>> import os, hashlib
->>> print hashlib.sha1(os.urandom(32)).hexdigest()
+<span class="ni">&gt;&gt;&gt; </span><span class="nc">import</span><span class="kv"> os, hashlib</span>
+<span class="ni">&gt;&gt;&gt; </span><span class="nc">print</span><span class="kv"> hashlib.sha1(os.urandom(32)).hexdigest()</span>
 3d787231f9b9e128a9b94647b6e968f1fe0deddc
->>> exit()
-casdev-master#  
-```
+<span class="ni">&gt;&gt;&gt; </span><span class="nc">exit()</span>
+<span class="ni">casdev-master# </span><span class="kv">
+</span></code></pre>
+</div>
 
 ## References
 
