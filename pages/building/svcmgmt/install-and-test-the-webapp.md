@@ -1,6 +1,6 @@
 ---
 title: Install and test the webapp
-last_updated: November 10, 2017
+last_updated: December 21, 2017
 sidebar: main_sidebar
 permalink: building_svcmgmt_install-and-test-the-webapp.html
 summary:
@@ -58,8 +58,8 @@ then
         tar xzf /tmp/cassrv-files.tgz etc/cas --exclude etc/cas/services
     fi
 
-    chmod -R g+w etc/cas/services
-    chmod g+w etc/cas/saml
+    chmod -fR g+w etc/cas/services
+    chmod -f g+w etc/cas/saml
 
     cd /opt/tomcat/latest/
     rm -rf webapps/cas work/Catalina/localhost/cas
