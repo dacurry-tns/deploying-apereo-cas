@@ -1,6 +1,6 @@
 ---
 title: Configure Luminis LDAP authentication properties
-last_updated: November 14, 2017
+last_updated: January 25, 2018
 sidebar: main_sidebar
 permalink: building_server_ldap_authentication_config-luminis-auth-properties.html
 summary:
@@ -20,7 +20,6 @@ cas.authn.ldap[1].userFilter:           uid={user}
 cas.authn.ldap[1].baseDn:               ou=People,o=cp
 cas.authn.ldap[1].bindDn:               uid=ldap_ssotest,ou=People,o=cp
 cas.authn.ldap[1].bindCredential:       xxxxxxxxxxxx
-cas.authn.ldap[1].principalAtrributeId: uid
 ```
 
 The `[1]` in the property names indicates that this is the second LDAP source to be configured (Active Directory was `[0]`).
@@ -68,10 +67,6 @@ The properties used above are:
         <tr>
             <td markdown="span">`bindCredential`</td>
             <td markdown="span">The password to the bind account.</td>
-        </tr>
-        <tr>
-            <td markdown="span">`principalAttributeId`</td>
-            <td markdown="span">The attribute to be used as the security principal identifier. In our case, `uid` is the username, which is what we want.</td>
         </tr>
     </tbody>
 </table>
