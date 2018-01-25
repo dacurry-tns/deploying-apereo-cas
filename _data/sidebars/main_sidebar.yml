@@ -319,7 +319,7 @@ entries:
       url: /building_server_dashboard_commit-changes-to-git.html
       output: web, pdf
 
-  - title: Building the service management webapp
+  - title: Building the services management webapp
     output: web, pdf
     folderitems:
     - title: Overview
@@ -362,11 +362,51 @@ entries:
       output: web, pdf
 
       subfolders:
-      - title: Building the configuration server
+      - title: Install and configure MongoDB
         output: web, pdf
         subfolderitems:
         - title: Overview
-          url: /high-avail_config-server_overview.html
+          url: /high-avail_mongodb_overview.html
+          output: web, pdf
+        - title: Install the MongoDB software
+          url: /high-avail_mongodb_install-the-mongodb-software.html
+          output: web, pdf
+        - title: Disable Transparent Huge Pages
+          url: /high-avail_mongodb_disable-transparent-huge-pages.html
+          output: web, pdf
+        - title: Open MongoDB port in the firewall
+          url: /high-avail_mongodb_open-mongodb-port-in-the-firewall.html
+          output: web, pdf
+        - title: Set up MongoDB authentication
+          url: /high-avail_mongodb_set-up-mongodb-authentication.html
+          output: web, pdf
+        - title: Create the replica set
+          url: /high-avail_mongodb_create-the-replica-set.html
+          output: web, pdf
+        - title: Test the replica set
+          url: /high-avail_mongodb_test-the-replica-set.html
+          output: web, pdf
+        - title: Configure MongoDB to use TLS/SSL
+          url: /high-avail_mongodb_configure-mongodb-to-use-tls-ssl.html
+          output: web, pdf
+        - title: Create the CAS database and user
+          url: /high-avail_mongodb_create-the-cas-database-and-user.html
+          output: web, pdf
+
+      - title: Setting up the ticket registry
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /high-avail_ticket-registry_overview.html
+          output: web, pdf
+        - title: Update the server configuration
+          url: /high-avail_ticket-registry_update-the-server-configuration.html
+          output: web, pdf
+        - title: Install and test the application
+          url: /high-avail_ticket-registry_install-and-test-the-application.html
+          output: web, pdf
+        - title: Commit changes to Git
+          url: /high-avail_ticket-registry_commit-changes-to-git.html
           output: web, pdf
 
       - title: Setting up the service registry
@@ -375,12 +415,31 @@ entries:
         - title: Overview
           url: /high-avail_service-registry_overview.html
           output: web, pdf
+        - title: Update the server configuration
+          url: /high-avail_service-registry_update-the-server-configuration.html
+          output: web, pdf
+        - title: Load the MongoDB service registry from the JSON service registry
+          url: /high-avail_service-registry_load_mongodb_from_json.html
+          output: web, pdf
+        - title: Install and test the application
+          url: /high-avail_service-registry_install-and-test-the-application.html
+          output: web, pdf
+        - title: Commit changes to Git
+          url: /high-avail_service-registry_commit-changes-to-git.html
+          output: web, pdf
 
-      - title: Setting up the ticket registry
+      - title: Setting up distributed SAML metadata storage
         output: web, pdf
         subfolderitems:
         - title: Overview
-          url: /high-avail_ticket-registry_overview.html
+          url: /high-avail_distrib-metadata_overview.html
+          output: web, pdf
+
+      - title: Setting up distributed configuration properties
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /high-avail_distrib-config_overview.html
           output: web, pdf
 
   - title: About

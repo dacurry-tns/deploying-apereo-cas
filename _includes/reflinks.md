@@ -22,11 +22,15 @@
 [casdoc-auth-attr-props]:       https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#authentication-attributes
 [casdoc-auth-merge-props]:      https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#merging-strategies
 [casdoc-cas-clients]:           https://apereo.github.io/cas/5.2.x/integration/CAS-Clients.html
+[casdoc-cas-protocol]:          https://apereo.github.io/cas/5.2.x/protocol/CAS-Protocol.html
 [casdoc-config-auth]:           https://apereo.github.io/cas/5.2.x/installation/Configuring-Authentication-Components.html
 [casdoc-config-cas-ep]:         https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#cas-endpoints
+[casdoc-config-mongo-sr]:       https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#mongodb-service-registry
+[casdoc-config-mongo-tr]:       https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#mongodb-ticket-registry
 [casdoc-config-prin-res]:       https://apereo.github.io/cas/5.2.x/installation/Configuring-Principal-Resolution.html
 [casdoc-config-sb-ep]:          https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#spring-boot-endpoints
 [casdoc-config-saml2-auth]:     https://apereo.github.io/cas/5.2.x/installation/Configuring-SAML2-Authentication.html
+[casdoc-config-server]:         https://apereo.github.io/cas/5.2.x/installation/Configuration-Server-Management.html
 [casdoc-config-svcmgmt-app]:    https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#management-webapp
 [casdoc-ha-guide]:              https://apereo.github.io/cas/5.2.x/planning/High-Availability-Guide.html
 [casdoc-inst-req]:              https://apereo.github.io/cas/5.2.x/planning/Installation-Requirements.html
@@ -39,6 +43,7 @@
 [casdoc-mfa-duo-props]:         https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#duosecurity
 [casdoc-mfa-props]:             https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#multifactor-authentication
 [casdoc-mon-stats]:             https://apereo.github.io/cas/5.2.x/installation/Monitoring-Statistics.html
+[casdoc-mongo-ticket-reg]:      https://apereo.github.io/cas/5.2.x/installation/MongoDb-Ticket-Registry.html
 [casdoc-saml-protocol]:         https://apereo.github.io/cas/5.2.x/protocol/SAML-Protocol.html
 [casdoc-saml-idp-props]:        https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#saml-idp
 [casdoc-sec-guide]:             https://apereo.github.io/cas/5.2.x/planning/Security-Guide.html
@@ -47,15 +52,21 @@
 [casdoc-svc-mgmt]:              https://apereo.github.io/cas/5.2.x/installation/Service-Management.html
 [casdoc-svc-mgmt-webapp]:       https://apereo.github.io/cas/5.2.x/installation/Installing-ServicesMgmt-Webapp.html
 [casdoc-svc-reg-json]:          https://apereo.github.io/cas/5.2.x/installation/JSON-Service-Management.html
+[casdoc-svc-reg-mongo]:         https://apereo.github.io/cas/5.2.x/installation/Mongo-Service-Management.html
+[casdoc-ticketing]:             https://apereo.github.io/cas/5.2.x/installation/Configuring-Ticketing-Components.html
 [casdoc-war-overlay]:           https://apereo.github.io/cas/5.2.x/installation/Maven-Overlay-Installation.html
 [casdoc-webflow-sess]:          https://apereo.github.io/cas/5.2.x/installation/Webflow-Customization-Sessions.html
 
 [code-beautify-json-pp]:        https://codebeautify.org/jsonviewer
 
 [digital-ocean-openssl]:        https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
+
 [duo-security]:                 https://duo.com/
 
 [epel-repo]:                    https://fedoraproject.org/wiki/EPEL
+
+[firewalld-ipset]:              http://www.firewalld.org/documentation/man-pages/firewalld.ipset.html
+[firewalld-richlanguage]:       http://www.firewalld.org/documentation/man-pages/firewalld.richlanguage.html
 
 [havege-daemon]:                http://www.issihosts.com/haveged/
 [havege-project]:               https://www.irisa.fr/caps/projects/hipsor/index.php
@@ -67,9 +78,21 @@
 [json-web-key-gen]:             https://mkjwk.org/
 [json-web-key-gen-git]:         https://github.com/mitreid-connect/json-web-key-generator
 
+[linode-mongodb-replica]:       https://www.linode.com/docs/databases/mongodb/create-a-mongodb-replica-set
+
 [maven-overlays]:               http://maven.apache.org/plugins/maven-war-plugin/overlays.html
 
 [mod_auth_cas]:                 https://github.com/apereo/mod_auth_cas
+
+[mongodb-org]:                  https://www.mongodb.com/
+[mongodb-add-users]:            https://docs.mongodb.com/manual/tutorial/create-users/
+[mongodb-conn-string]:          https://docs.mongodb.com/manual/reference/connection-string/
+[mongodb-disable-thp]:          https://docs.mongodb.com/manual/tutorial/transparent-huge-pages/
+[mongodb-install]:              https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/
+[mongodb-internal-auth]:        https://docs.mongodb.com/manual/core/security-internal-authentication/
+[mongodb-rbac]:                 https://docs.mongodb.com/manual/core/authorization/
+[mongodb-replica-keyfile]:      https://docs.mongodb.com/manual/tutorial/deploy-replica-set-with-keyfile-access-control/
+[mongodb-ssl]:                  https://docs.mongodb.com/manual/tutorial/configure-ssl/
 
 [mozilla-ssl-gen]:              https://mozilla.github.io/server-side-tls/ssl-config-generator/
 [mozilla-ssl-tls]:              https://wiki.mozilla.org/Security/Server_Side_TLS
@@ -83,6 +106,8 @@
 [pro-git]:                      https://git-scm.com/book/
 
 [qualys-ssltest]:               https://www.ssllabs.com/ssltest/
+
+[scram]:                        https://tools.ietf.org/html/rfc5802
 
 [shibboleth-attr-naming]:       https://wiki.shibboleth.net/confluence/display/SHIB2/AttributeNaming
 [shibboleth-idp]:               https://www.shibboleth.net/products/identity-provider/

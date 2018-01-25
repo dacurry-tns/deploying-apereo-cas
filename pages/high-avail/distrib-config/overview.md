@@ -1,8 +1,8 @@
 ---
-title: Building the configuration server
-last_updated: September 1, 2017
+title: Setting up distributed configuration properties
+last_updated: November 28, 2017
 sidebar: main_sidebar
-permalink: high-avail_config-server_overview.html
+permalink: high-avail_distrib-config_overview.html
 summary: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
 ---
 

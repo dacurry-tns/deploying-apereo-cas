@@ -1,8 +1,8 @@
 ---
-title: First word only capitalized
-last_updated: Month dd, 2018
+title: Setting up distributed SAML metadata storage
+last_updated: December 21, 2017
 sidebar: main_sidebar
-permalink: subdir_title-words.html
+permalink: high-avail_distrib-metadata_overview.html
 summary: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
 ---
 
