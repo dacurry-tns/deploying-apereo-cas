@@ -1,6 +1,6 @@
 ---
 title: Install Tomcat
-last_updated: November 13, 2017
+last_updated: February 1, 2018
 sidebar: main_sidebar
 permalink: setup_tomcat_install-tomcat.html
 summary:
@@ -13,15 +13,15 @@ As discussed in the [introduction to this section][setup_tomcat_overview], Red H
 ```console
 casdev-master# mkdir -p /opt/tomcat
 casdev-master# cd /opt/tomcat
-casdev-master# curl -LO 'http://apache.cs.utah.edu/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23.tar.gz'
+casdev-master# curl -LO 'http://apache.cs.utah.edu/tomcat/tomcat-8/v8.5.27/bin/apache-tomcat-8.5.27.tar.gz'
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100 9250k  100 9250k    0     0  5468k      0  0:00:01  0:00:01 --:--:-- 5467k
-casdev-master# tar xzf apache-tomcat-8.5.23.tar.gz
-casdev-master# ln -s apache-tomcat-8.5.23 latest
-casdev-master# rm -f apache-tomcat-8.5.23.tar.gz
+100 9313k  100 9313k    0     0  4036k      0  0:00:02  0:00:02 --:--:-- 4038k
+casdev-master# tar xzf apache-tomcat-8.5.27.tar.gz
+casdev-master# ln -s apache-tomcat-8.5.27 latest
+casdev-master# rm -f apache-tomcat-8.5.27.tar.gz
 ```
 
-to download and install Tomcat on the master build server (***casdev-master***). (Replace `8.5.23` in the commands above with the current stable version of Tomcat 8.5.) This will install the current version of Tomcat 8.5 in a version-specific subdirectory of `/opt/tomcat`, and make it accessible by the path `/opt/tomcat/latest`.  By making everything outside this directory refer to `/opt/tomcat/latest`, an updated version can be installed and the link changed without having to edit/recompile anything else.
+to download and install Tomcat on the master build server (***casdev-master***). (Replace `8.5.27` in the commands above with the current stable version of Tomcat 8.5.) This will install the current version of Tomcat 8.5 in a version-specific subdirectory of `/opt/tomcat`, and make it accessible by the path `/opt/tomcat/latest`.  By making everything outside this directory refer to `/opt/tomcat/latest`, an updated version can be installed and the link changed without having to edit/recompile anything else.
 
 {% include links.html %}
