@@ -1,6 +1,6 @@
 ---
 title: Configure MongoDB to use TLS/SSL
-last_updated: January 25, 2018
+last_updated: February 27, 2018
 sidebar: main_sidebar
 permalink: high-avail_mongodb_configure-mongodb-to-use-tls-ssl.html
 summary:
@@ -76,7 +76,7 @@ The MongoDB server also requires that the certificate chain (the intermediate ce
 
 ```console
 casdev-srv01# cd /etc/pki/tls
-casdev-srv01# cat certs/casdev-srv01-intermediate.crt casdev-srv01-root.crt > /var/lib/mongo/mongo-cafile.pem
+casdev-srv01# cat certs/casdev-srv01-intermediate.crt casdev-srv01-root.crt > /var/lib/mongo/mongod-cafile.pem
 casdev-srv01# chown mongod.mongod /var/lib/mongo/mongod-cafile.pem
 casdev-srv01# chmod 400 /var/lib/mongo/mongod-cafile.pem
 ```
