@@ -1,6 +1,6 @@
 ---
 title: Configure server properties
-last_updated: October 20, 2017
+last_updated: April 11, 2018
 sidebar: main_sidebar
 permalink: building_server_configure-server-properties.html
 summary:
@@ -88,9 +88,9 @@ cas.webflow.crypto.signing.key:       hGapVlP6pCzIUo_CCboRszQpvWFPazmyuWsBUOoWYq
 cas.webflow.crypto.encryption.key:    Kmj1JJSPOTSiagI4gCxhUA==
 ```
 
-{% include tip.html content="The online JSON Web Key Generator is provided by the Mitre Corporation and the MIT Kerberos and Internet Trust Consortium, and is simply a web-based interface to the [json-web-key-generator][json-web-key-gen-git] project, also provided by Mitre/MIT. The project can be cloned from GitHub and built locally if you don't trust the online generator, or you can download and use a pre-built copy from the CAS project by running the command<br/><br/>
-<code># curl -LO https://raw.githubusercontent.com/apereo/cas/master/etc/jwk-gen.jar</code><br/><br/>
-Keys can then be generated using the command<br/><br/>
+{% include tip.html content="The online JSON Web Key Generator is provided by the Mitre Corporation and the MIT Kerberos and Internet Trust Consortium, and is simply a web-based interface to the [json-web-key-generator][json-web-key-gen-git] project, also provided by Mitre/MIT. The project can be cloned from GitHub and built locally if you don't trust the online generator, or you can download and use a pre-built copy from the CAS project by running the command<br><br>
+<code># curl -LO https://raw.githubusercontent.com/apereo/cas/master/etc/jwk-gen.jar</code><br><br>
+Keys can then be generated using the command<br><br>
 <code># java -jar jwk-gen.jar -t oct -s [size]</code>" %}
 
 ## References

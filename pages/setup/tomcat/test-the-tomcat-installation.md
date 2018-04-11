@@ -1,6 +1,6 @@
 ---
 title: Test the Tomcat installation
-last_updated: September 1, 2017
+last_updated: April 11, 2018
 sidebar: main_sidebar
 permalink: setup_tomcat_test-the-tomcat-installation.html
 summary:
@@ -46,7 +46,7 @@ casdev-master# systemctl start tomcat
 
 Review the contents of the log file (`/var/log/tomcat/catalina.yyyy-mm-dd.out`) for errors. All log messages in a successful start should be at log level `INFO`. If any messages are at log level `WARNING` or `SEVERE`, then something is wrong and needs to be corrected.
 
-{% include note.html content="The Tomcat SSL connector configuration created in [Configure TLS/SSL settings][setup_tomcat_configure-tlsssl-settings] includes a setting for the `disableSessionTickets` property (setting it to `true`). This is necessary to avoid a bug in Tomcat's JSSE with OpenSSL implementation ([BugID 59811](https://bz.apache.org/bugzilla/show_bug.cgi?id=59811)). However, including the property will cause this warning message to appear:<br/><br/>`DD-MMM-YYYY HH:MM:SS.sss WARNING [main] org.apache.tomcat.util.net.SSLHostConfig.setConfigType The property [disableSessionTickets] was set on the SSLHostConfig named [_default_] and is for connectors of type [OPENSSL] but the SSLHostConfig is being used with a connector of type [EITHER]`<br/><br/>This warning message is being printed erroneously (as configured, the JSSE connector *is* using OpenSSL) and should be ignored." %}
+{% include note.html content="The Tomcat SSL connector configuration created in [Configure TLS/SSL settings][setup_tomcat_configure-tlsssl-settings] includes a setting for the `disableSessionTickets` property (setting it to `true`). This is necessary to avoid a bug in Tomcat's JSSE with OpenSSL implementation ([BugID 59811](https://bz.apache.org/bugzilla/show_bug.cgi?id=59811)). However, including the property will cause this warning message to appear:<br><br>`DD-MMM-YYYY HH:MM:SS.sss WARNING [main] org.apache.tomcat.util.net.SSLHostConfig.setConfigType The property [disableSessionTickets] was set on the SSLHostConfig named [_default_] and is for connectors of type [OPENSSL] but the SSLHostConfig is being used with a connector of type [EITHER]`<br><br>This warning message is being printed erroneously (as configured, the JSSE connector *is* using OpenSSL) and should be ignored." %}
 
 The last line of the log file in a successful start should look like this:
 
