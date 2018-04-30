@@ -1,6 +1,6 @@
 ---
 title: Set up MongoDB authentication
-last_updated: December 20, 2017
+last_updated: April 30, 2018
 sidebar: main_sidebar
 permalink: high-avail_mongodb_set-up-mongodb-authentication.html
 summary:
@@ -94,6 +94,7 @@ MongoDB uses a YAML-formatted configuration file, `/etc/mongod.conf`. Edit this 
 2. Uncomment the `security` section and add a `keyFile` setting with the path to the keyfile created above (`/var/lib/mongo/mongod-auth.key`).
 3. Also in the `security` section, add an `authorization` setting with the value `enabled` (this turns on role-based access control).
 4. Uncomment the `replication` section and add a `replSetName` setting with the value `rs0`.
+5. In the `systemLog` section add a `logRotate` setting with the value `reopen` (this is necessary for the `logrotate` configuration, created earlier, to work properly).
 
 After making these changes, the affected sections of the configuration file should look like this:
 
@@ -108,6 +109,9 @@ security:
 
 replication:
   replSetName: rs0
+
+systemLog:
+  logRotate: reopen
 ```
 
 Then run the commands

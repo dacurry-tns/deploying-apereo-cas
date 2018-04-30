@@ -1,6 +1,6 @@
 ---
 title: Install the MongoDB software
-last_updated: December 14, 2017
+last_updated: April 30, 2018
 sidebar: main_sidebar
 permalink: high-avail_mongodb_install-the-mongodb-software.html
 summary:
@@ -73,9 +73,10 @@ Create the file `/etc/logrotate.d/mongod` on the master build server (***casdev-
     missingok
     notifempty
     rotate 30
+    create 0640 mongod mongod
     sharedscripts
     postrotate
-        /bin/kill -SIGUSR1 `cat /var/lib/mongo/mongod.lock 2> /dev/null` 2> /dev/null || true
+        /bin/kill -SIGUSR1 $(cat /var/run/mongodb/mongod.pid)
     endscript
 }
 ```
@@ -99,15 +100,16 @@ considering log /var/log/mongodb/mongod.log
   log needs rotating
 rotating log /var/log/mongodb/mongod.log, log->rotateCount is 30
 Converted ' -%Y-%m-%d' -> '-%Y-%m-%d'
-dateext suffix '-2017-12-13'
+dateext suffix '-2018-04-29'
 glob pattern '-[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'
 glob finding old rotated logs failed
 fscreate context set to system_u:object_r:mongod_log_t:s0
-renaming /var/log/mongodb/mongod.log to /var/log/mongodb/mongod-2017-12-13.log
+renaming /var/log/mongodb/mongod.log to /var/log/mongodb/mongod-2018-04-29.log
+creating new /var/log/mongodb/mongod.log mode = 0640 uid = 994 gid = 992
 running postrotate script
 running script with arg /var/log/mongodb/mongod.log
 : "
-        /bin/kill -SIGUSR1 `cat /var/lib/mongo/mongod.lock 2> /dev/null` 2> /dev/null || true
+        /bin/kill -SIGUSR1 $(cat /var/run/mongodb/mongod.pid)
 "
 casdev-master#  
 ```
