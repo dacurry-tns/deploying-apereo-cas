@@ -1,6 +1,6 @@
 ---
 title: Configure logging settings
-last_updated: September 1, 2017
+last_updated: April 30, 2018
 sidebar: main_sidebar
 permalink: building_server_configure-logging-settings.html
 summary:
@@ -30,8 +30,9 @@ By default, the CAS log files will be rotated whenever their size reaches 10MB. 
 `etc/cas/config/log4j2.xml` file again, and make the following changes:
 
 1. In the `RollingFile` configuration for `cas.log` (around line 17), change the variable part of the `filePattern` attribute from `%d{yyyy-MM-dd-HH}-%i.log` to `%d{yyyy-MM-dd}.log` (remove the hour and sequence number from the pattern).
-2. Remove the `size="10MB"` attribute from the `SizeBasedTriggeringPolicy` element (around line 22).
-3. Add the attributes `interval="1" modulate="true"` to the `TimeBasedTriggeringPolicy` element (around line 23).
+2. Remove (or comment out) the `OnStartupTriggeringPolicy` element (around line 21).
+3. Remove (or comment out) the `SizeBasedTriggeringPolicy` element (around line 22).
+4. Add the attributes `interval="1" modulate="true"` to the `TimeBasedTriggeringPolicy` element (around line 23).
 
 The end result should look like this:
 
@@ -40,14 +41,14 @@ The end result should look like this:
              filePattern="${sys:cas.log.dir}/cas-%d{yyyy-MM-dd}.log">
     <PatternLayout pattern="%d %p [%c] - &lt;%m&gt;%n"/>
     <Policies>
-        <OnStartupTriggeringPolicy />
-        <SizeBasedTriggeringPolicy />
         <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
     </Policies>
 </RollingFile>
 ```
 
 Repeat the above changes for `cas_audit.log` (starting around line 26) and `perfStats.log` (starting around line 36).
+
+{% include warning.html content="The configuration above assumes that there will be one, and only one, log file for each day. If a file with today's name already exists when Tomcat decides to rotate, the existing file will be ***overwritten***.<br><br>If you decide to keep the `OnStartupTriggeringPolicy` (which rotates the file whenever Tomcat starts) or the `SizeBasedTriggeringPolicy` (which rotates the file when it reaches a specified size (10MB by default)), or add some other policy, you should make sure the `filePattern` you use generates unique names if called more than once a day (e.g., by keeping the `%i` sequence number) or you will lose log data." %}
 
 ## References
 
