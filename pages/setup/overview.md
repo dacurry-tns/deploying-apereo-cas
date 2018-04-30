@@ -1,6 +1,6 @@
 ---
 title: Setting up the environment
-last_updated: September 1, 2017
+last_updated: April 10, 2018
 sidebar: main_sidebar
 permalink: setup_overview.html
 summary: Before beginning the CAS build and configuration process, the server environment should be prepared by creating virtual machines, installing necessary software dependencies, and performing basic software configuration and system administration tasks.
@@ -78,7 +78,9 @@ The environment also includes a single virtual address on the F5 load balancers 
     </tbody>
 </table>
 
-Each of the six development servers is a VMware virtual machine running Red Hat Enterprise Linux (RHEL) 7 (64-bit) on 2 CPUs with 4 GB of RAM and 20 GB of disk space, which are the minimums recommended in the CAS 5 documentation.
+Each of the six development servers is a VMware virtual machine running Red Hat Enterprise Linux (RHEL) 7 (64-bit) on 1 CPU with 4 GB of RAM and 20 GB of disk space.
+
+{% include important.html content="Although 1 CPU and 4 GB is adequate for CAS development and testing, production operation requires more resources. Each server in the production server pool should have a minimum of 2 CPUs and 8 GB of memory." %}
 
 ## References
 

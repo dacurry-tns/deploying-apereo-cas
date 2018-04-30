@@ -1,6 +1,6 @@
 ---
 title: Configure <code>systemd</code> to start Tomcat
-last_updated: November 3, 2017
+last_updated: April 10, 2018
 sidebar: main_sidebar
 permalink: setup_tomcat_configure-systemd-to-start-tomcat.html
 summary:
@@ -56,6 +56,8 @@ ExecStop=/opt/tomcat/latest/bin/jsvc \
 [Install]
 WantedBy=multi-user.target
 ```
+
+{% include important.html content="Although a 2 GB maximum size for the Java heap is adequate for CAS development and testing, production operation requires more resources. When installing on the production servers, change `-Xmx2048M` to `-Xmx4096M` in the \"Tomcat variables\" section." %}
 
 ## Enable the Tomcat service unit
 
