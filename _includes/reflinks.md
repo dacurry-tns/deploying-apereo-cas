@@ -57,6 +57,9 @@
 [casdoc-war-overlay]:           https://apereo.github.io/cas/5.2.x/installation/Maven-Overlay-Installation.html
 [casdoc-webflow-sess]:          https://apereo.github.io/cas/5.2.x/installation/Webflow-Customization-Sessions.html
 
+[casrepo]:                      https://github.com/apereo/cas
+[casrepo-releases]:             https://github.com/apereo/cas/releases
+
 [code-beautify-json-pp]:        https://codebeautify.org/jsonviewer
 
 [digital-ocean-openssl]:        https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs

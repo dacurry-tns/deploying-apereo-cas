@@ -1,10 +1,12 @@
 ---
 title: Introduction
-last_updated: September 1, 2017
+last_updated: April 16, 2018
 sidebar: main_sidebar
 permalink: introduction_overview.html
 summary: This document provides step-by-step instructions for setting up an Apereo CAS 5 environment. It was created during the process of building a brand new development environment to experiment with many of the new features in this release.
 ---
+
+{% include callout.html type="primary" content="**CAS VERSION USED IN THIS DOCUMENT**<br><br>The instructions, configuration settings, and hyperlink references contained in this document are based on **CAS 5.2.4** which, as of the \"last updated\" date at the bottom of this page, is the latest General Availability (GA) release. Using this document with the CAS 5.1.*x* or CAS 5.3.*x* branches should be possible, but there may be some differences in available functionality and the names or values of some configuration settings.<br><br>The best way to learn about changes from one release to another is to read Misagh Moayyed's \"Changelog\" blog posts. These come out with each release candidate, and describe the significant changes from the previous release candidate (cumulatively, the changelogs for the several release candidates describe the changes from one feature release to the next). To access these blog posts, go to the [Releases][casrepo-releases] section of the [CAS GitHub Repository][casrepo] and search for \"Changelog\"." %}
 
 [Apereo CAS 5][casdocs] was released in November 2016. The new release improved on many of the enhancements introduced in the CAS 4 series of releases, and also introduced several new features that will enable The New School to offer an improved single sign-on experience to its users.
 
@@ -44,7 +46,7 @@ The New School's major implementation goals for this environment are:
 
 Although the Apereo development team has dramatically simplified the configure-build-deploy process, CAS 5 is still a complex system with a lot of moving parts, and there can be a pretty steep learning curve for someone who's never done it before. Since there's not a lot of up-to-date step-by-step how-to documentation out there, we're offering what we've learned in the hope that others will find it helpful.
 
-{% include callout.html type="warning" content="**DISCLAIMER**<br/><br/>The instructions and settings provided in this document may not be the only way to do things. They may not be the best way to do things. They may not even be the right way to do things. They work for us, but they may not work for you. You should carefully evaluate every suggestion, recommendation, and instruction in the context of your environment and decide whether or not it makes sense. Make sure you know and understand what's going to happen ***before*** you press the \"Enter\" key. When in doubt, [Read The Fine Manual][casdocs].<br/><br/>No warranty express or implied. May cause drowsiness. Your mileage may vary. Not intended to diagnose, treat, cure, or prevent any disease. Professional driver on closed course. Safety goggles recommended. Use with adult supervision. Keep out of reach of children. Do not eat." %}
+{% include callout.html type="warning" content="**DISCLAIMER**<br><br>The instructions and settings provided in this document may not be the only way to do things. They may not be the best way to do things. They may not even be the right way to do things. They work for us, but they may not work for you. You should carefully evaluate every suggestion, recommendation, and instruction in the context of your environment and decide whether or not it makes sense. Make sure you know and understand what's going to happen ***before*** you press the \"Enter\" key. When in doubt, [Read The Fine Manual][casdocs].<br><br>No warranty express or implied. May cause drowsiness. Your mileage may vary. Not intended to diagnose, treat, cure, or prevent any disease. Professional driver on closed course. Safety goggles recommended. Use with adult supervision. Keep out of reach of children. Do not eat." %}
 
 {% unless site.output == "pdf" %}
 ## PDF version
