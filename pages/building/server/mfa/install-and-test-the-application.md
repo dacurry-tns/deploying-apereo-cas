@@ -1,12 +1,12 @@
 ---
 title: Install and test the application
-last_updated: September 29, 2017
+last_updated: July 31, 2018
 sidebar: main_sidebar
 permalink: building_server_mfa_install-and-test-the-application.html
 summary:
 ---
 
-Before multifactor authentication can be used, the rebuilt CAS application and the updated configuration files must be installed. Then everything can be tested by accessing the "public" part of the client application web site and then clicking on the link to the "secure" section. At that point, the browser should be redirected to the CAS server, where upon successful authentication the secure content, including the values of the attributes, will be displayed.
+Before multi-factor authentication can be used, the rebuilt CAS application and the updated configuration files must be installed. Then everything can be tested by accessing the "public" part of the client application web site and then clicking on the link to the "secure" section. At that point, the browser should be redirected to the CAS server, where upon successful authentication the secure content, including the values of the attributes, will be displayed.
 
 Because both the load balancer and the CAS server use cookies, it's usually best to perform testing with an "incognito" or "private browsing" instance of the web browser that deletes all cookies each time it is closed.
 

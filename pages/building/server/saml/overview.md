@@ -1,6 +1,6 @@
 ---
 title: Adding SAML support
-last_updated: October 25, 2017
+last_updated: July 31, 2018
 sidebar: main_sidebar
 permalink: building_server_saml_overview.html
 summary: CAS 5's native capability to operate as a SAML2 Identity Provider will be used to provide authentication and single sign-on support to services that do not support the CAS protocol.
@@ -18,7 +18,7 @@ It's important to understand two terms when talking about SAML, *Identity Provid
     <tbody>
         <tr>
             <td markdown="span">Identity Provider (IdP)</td>
-            <td markdown="span">A SAML Identity Provider (IdP) is a service that authenticates users ("principals") by means such as usernames, passwords, and multifactor authentication schemes. An authenticated user is given a security token that he or she can present to service providers (SPs, see below) to gain access to their services. The IdP also accepts users' security tokens from SPs and returns an indication of whether or not they are valid. CAS 5 has added full native SAML2 support, enabling the CAS server to function as an IdP and eliminating our dependency on Shibboleth.</td>
+            <td markdown="span">A SAML Identity Provider (IdP) is a service that authenticates users ("principals") by means such as usernames, passwords, and multi-factor authentication schemes. An authenticated user is given a security token that he or she can present to service providers (SPs, see below) to gain access to their services. The IdP also accepts users' security tokens from SPs and returns an indication of whether or not they are valid. CAS 5 has added full native SAML2 support, enabling the CAS server to function as an IdP and eliminating our dependency on Shibboleth.</td>
         </tr>
         <tr>
             <td markdown="span">Service Provider (SP)</td>

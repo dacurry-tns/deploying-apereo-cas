@@ -1,12 +1,12 @@
 ---
 title: Update the service registry
-last_updated: September 26, 2017
+last_updated: July 31, 2018
 sidebar: main_sidebar
 permalink: building_server_mfa_update-the-service-registry.html
 summary:
 ---
 
-Although it's possible to enable MFA across the board for all services by setting properties in `cas.properties` (see [CAS 5: Configuration Properties: Multifactor Authentication][casdoc-mfa-props]), it's usually preferable to configure it on a per-service basis in the service registry.
+Although it's possible to enable MFA across the board for all services by setting properties in `cas.properties` (see [CAS 5: Configuration Properties: Multi-factor Authentication][casdoc-mfa-props]), it's usually preferable to configure it on a per-service basis in the service registry.
 
 ## Create a second service definition for the CAS client
 
@@ -50,7 +50,7 @@ The `multifactorPolicy` added here defines a single MFA provider, `mfa-duo`. It 
 ## References
 
 * [CAS 5: Duo Security Authentication][casdoc-mfa-duo]
-* [CAS 5: Configuration Properties: Multifactor Authentication][casdoc-mfa-props]
+* [CAS 5: Configuration Properties: Multi-factor Authentication][casdoc-mfa-props]
 
 {% include reflinks.md %}
 {% include links.html %}

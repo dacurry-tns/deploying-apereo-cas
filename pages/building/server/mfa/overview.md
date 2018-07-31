@@ -1,12 +1,12 @@
 ---
 title: Adding MFA support
-last_updated: October 23, 2017
+last_updated: July 31, 2018
 sidebar: main_sidebar
 permalink: building_server_mfa_overview.html
-summary: Multifactor authentication from Duo Security will be used to secure access to applications containing sensitive information or providing sensitive functionality.
+summary: Multi-factor authentication from Duo Security will be used to secure access to applications containing sensitive information or providing sensitive functionality.
 ---
 
-CAS 5 provides a flexible framework for multifactor authentication (MFA) that supports multiple multifactor providers. MFA can be required on a per-service basis or across the board for all services. It can be required for individual named users, groups of users, or all users. Multiple MFA products/solutions can be supported in the same CAS server instance (and indeed, if desired, multiple MFA products/solutions can be required to access a single service).
+CAS 5 provides a flexible framework for multi-factor authentication (MFA) that supports multiple multi-factor providers. MFA can be required on a per-service basis or across the board for all services. It can be required for individual named users, groups of users, or all users. Multiple MFA products/solutions can be supported in the same CAS server instance (and indeed, if desired, multiple MFA products/solutions can be required to access a single service).
 
 The New School is currently in the early stages of rolling out [Duo Security][duo-security] to all faculty and staff to access certain select applications. Duo offers several options for authenticating users:
 
@@ -106,7 +106,7 @@ casdev-master#
 
 ## References
 
-* [CAS 5: Multifactor Authentication][casdoc-mfa]
+* [CAS 5: Multi-factor Authentication][casdoc-mfa]
 * [CAS 5: Duo Security Authentication][casdoc-mfa-duo]
 
 {% include reflinks.md %}

@@ -1,12 +1,12 @@
 ---
 title: Adding MFA to SAML authentication
-last_updated: October 27, 2017
+last_updated: July 31, 2018
 sidebar: main_sidebar
 permalink: building_samlclient_adding-mfa-to-saml-auth.html
 summary:
 ---
 
-Adding a multifactor authentication flow to a SAML-authenticated service is as easy as editing the service registry definition to add the `multifactorPolicy` directive. For example, the service registry definition file created in this chapter would look like this with Duo multifactor authentication added:
+Adding a multi-factor authentication flow to a SAML-authenticated service is as easy as editing the service registry definition to add the `multifactorPolicy` directive. For example, the service registry definition file created in this chapter would look like this with Duo multi-factor authentication added:
 
 ```json
 {
@@ -58,7 +58,7 @@ Instead, to test SAML and MFA together, just add the `multifactorPolicy` attribu
 ## References
 
 * [CAS 5: Duo Security Authentication][casdoc-mfa-duo]
-* [CAS 5: Configuration Properties: Multifactor Authentication][casdoc-mfa-props]
+* [CAS 5: Configuration Properties: Multi-factor Authentication][casdoc-mfa-props]
 
 {% include reflinks.md %}
 {% include links.html %}
