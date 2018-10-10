@@ -1,6 +1,6 @@
 ---
-title: Enabling the dashboard (adminpages)
-last_updated: November 3, 2017
+title: Enabling the dashboard (admin pages)
+last_updated: October 10, 2018
 sidebar: main_sidebar
 permalink: building_server_dashboard_overview.html
 summary: The dashboard will be enabled to support server administration and monitoring.
