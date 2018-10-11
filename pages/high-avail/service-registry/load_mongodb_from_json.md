@@ -1,6 +1,6 @@
 ---
 title: Load the MongoDB service registry from the JSON service registry
-last_updated: MoDecember 21, 2017
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: high-avail_service-registry_load_mongodb_from_json.html
 summary:
@@ -25,7 +25,7 @@ cas.serviceRegistry.initFromJson:      true
 
 ## Install and run on the master build server
 
-Use the [updated build and installation scripts][building_svcmgmt_install-and-test-the-webapp] (or repeat the commands) to install the updated CAS server and services management webapp on the master build server (***casdev-master***) and restart Tomcat:
+Use the [updated build and installation scripts][building_svcmgmt_install-and-test-the-webapp] (or repeat the commands) to install the updated CAS server and management webapp on the master build server (***casdev-master***) and restart Tomcat:
 
 ```console
 casdev-master# sh /opt/scripts/cassrv-tarball.sh

@@ -1,6 +1,6 @@
 ---
 title: Enabling the dashboard (admin pages)
-last_updated: October 10, 2018
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: building_server_dashboard_overview.html
 summary: The dashboard will be enabled to support server administration and monitoring.
@@ -16,7 +16,7 @@ Some of the more "interesting" endpoints include:
 * **Configuration Properties** &ndash; A JSON-formatted dump of all the CAS configuration properties and their current values.
 * **Statistics Panel** &ndash; A dashbnoard-like display of expired and unexpired tickets, JVM statistics, and other information.
 * **SSO Sessions** &ndash; A dashboard-like display of current active sessions, including usernames, tickets, authentication times, etc.
-* **Registered Services** &ndash; A JSON-formatted dump of the service registry (the [services management webapp][building_svcmgmt_overview] will provide a better representation of this information).
+* **Registered Services** &ndash; A JSON-formatted dump of the service registry (the [management webapp][building_svcmgmt_overview] will provide a better representation of this information).
 * **Attribute Resolution and Release** &ndash; An interactive interface to test attribute resolution for individual users, and attribute release to specific services.
 
 As of this writing, most of the endpoints don't do anything beyond print information in raw JSON format. However, even this can be useful for examining the current server state, although it may require copying-and-pasting the output into a JSON pretty-printer (such as [Code Beautify][code-beautify-json-pp]) to make any sense of it.

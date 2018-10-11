@@ -1,14 +1,14 @@
 ---
 title: Configure webapp properties
-last_updated: December 20, 2017
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: building_svcmgmt_configure-webapp-properties.html
 summary:
 ---
 
-Like the CAS server, the services management webapp expects to find its configuration files in the operating system directory `/etc/cas`. The webapp configuration is controlled via settings in a separate properties file, `management.properties`, located in the `/etc/cas/config` directory. The Maven WAR overlay template provides a "source" for this file (which makes it easy to manage with Git).
+Like the CAS server, the management webapp expects to find its configuration files in the operating system directory `/etc/cas`. The webapp configuration is controlled via settings in a separate properties file, `management.properties`, located in the `/etc/cas/config` directory. The Maven WAR overlay template provides a "source" for this file (which makes it easy to manage with Git).
 
-Edit the file `etc/cas/config/management.properties` in the `cas-service-management-overlay` directory on the master build server (***casdev-master***) and make the changes in the following sections.
+Edit the file `etc/cas/config/management.properties` in the `cas-management-overlay` directory on the master build server (***casdev-master***) and make the changes in the following sections.
 
 ## Configure CAS server information
 
@@ -23,7 +23,7 @@ These two properties tell the webapp to use the named CAS server for authenticat
 
 ## Configure webapp server name
 
-Locate the line for the `cas.mgmt.serverName` property (around line 10) and set it to the URL of the server where the services management webapp will be running. We're going to run the webapp on the CAS servers, in the same servlet container, so this property should have the same value as `cas.server.name`, above:
+Locate the line for the `cas.mgmt.serverName` property (around line 10) and set it to the URL of the server where the management webapp will be running. We're going to run the webapp on the CAS servers, in the same servlet container, so this property should have the same value as `cas.server.name`, above:
 
 ```properties
 cas.mgmt.serverName:                   ${cas.server.name}
@@ -31,7 +31,7 @@ cas.mgmt.serverName:                   ${cas.server.name}
 
 ## Configure users and roles
 
-Like the dashboard, the services management webapp uses a separate users file to list the users who should be able to access it (after authenticating through the CAS server) and the role(s) they should have. Locate the line for the `cas.mgmt.userPropertiesFile` property (around line 7) and set it the same value as the `cas.adminPagesSecurity.users` property in the `cas.properties` file:
+Like the dashboard, the management webapp uses a separate users file to list the users who should be able to access it (after authenticating through the CAS server) and the role(s) they should have. Locate the line for the `cas.mgmt.userPropertiesFile` property (around line 7) and set it the same value as the `cas.adminPagesSecurity.users` property in the `cas.properties` file:
 
 ```properties
 cas.mgmt.userPropertiesFile:           file:/etc/cas/config/admusers.properties
@@ -49,7 +49,7 @@ casdev-master# git rm etc/cas/config/users.properties
 
 ## Delete embedded servlet container properties
 
-The `management.properties` file included with the Maven WAR overlay includes some properties that are only applicable when running the services management webapp as a Spring Boot application in an embedded servlet container. Since we are using an external servlet container, these settings are not needed, and should be deleted. Locate  the lines below (around lines 12-13):
+The `management.properties` file included with the Maven WAR overlay includes some properties that are only applicable when running the management webapp as a Spring Boot application in an embedded servlet container. Since we are using an external servlet container, these settings are not needed, and should be deleted. Locate  the lines below (around lines 12-13):
 
 ```properties
 server.context-path=/cas-management
@@ -60,7 +60,7 @@ Delete (or comment out) these lines.
 
 ## Configure the JSON service registry
 
-In order for the services management webapp to manage the services registry used by the CAS server, it has to know where it is. Add a new property, `cas.serviceRegistry.json.location`, and set it to the same value as the property of the same name in `cas.properties`:
+In order for the management webapp to manage the services registry used by the CAS server, it has to know where it is. Add a new property, `cas.serviceRegistry.json.location`, and set it to the same value as the property of the same name in `cas.properties`:
 
 ```properties
 cas.serviceRegistry.json.location:     file:/etc/cas/services

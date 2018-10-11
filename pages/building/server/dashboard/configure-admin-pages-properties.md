@@ -1,6 +1,6 @@
 ---
 title: Configure admin pages properties
-last_updated: December 20, 2017
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: building_server_dashboard_configure-admin-pages-properties.html
 summary:
@@ -80,7 +80,7 @@ Create a file called `etc/cas/config/admusers.properties` in the `cas-war-overla
 gnarls=passwordnotused,ROLE_ADMIN
 ```
 
-Additional users can be listed, one per line, below the first one. Since the users are authenticating to the CAS server (against Active Directory or LDAP) the password field is not needed, and can be filled with any string (e.g., `passwordnotused`). Each user may have up to two `grantedAuthority` values assigned; for the user to be able to access the endpoints, one of these values must match one of the values assigned to the `cas.adminPagesSecurity.adminRoles` property (see above). This file is also used by the [services management webapp][building_svcmgmt_overview], so having two possible values allows users to be given access to the endpoints, the webapp, or both.
+Additional users can be listed, one per line, below the first one. Since the users are authenticating to the CAS server (against Active Directory or LDAP) the password field is not needed, and can be filled with any string (e.g., `passwordnotused`). Each user may have up to two `grantedAuthority` values assigned; for the user to be able to access the endpoints, one of these values must match one of the values assigned to the `cas.adminPagesSecurity.adminRoles` property (see above). This file is also used by the [management webapp][building_svcmgmt_overview], so having two possible values allows users to be given access to the endpoints, the webapp, or both.
 
 ## References
 

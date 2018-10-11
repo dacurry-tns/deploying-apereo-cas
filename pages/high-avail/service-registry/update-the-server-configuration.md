@@ -1,16 +1,16 @@
 ---
 title: Update the server configuration
-last_updated: December 21, 2017
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: high-avail_service-registry_update-the-server-configuration.html
 summary:
 ---
 
-Enabling the MongoDB service registry requires updating a dependency in the project object model, rebuilding the server, and updating configuration properties. The same steps must be performed on the services management webapp, which also works with the service registry.
+Enabling the MongoDB service registry requires updating a dependency in the project object model, rebuilding the server, and updating configuration properties. The same steps must be performed on the management webapp, which also works with the service registry.
 
 ## Update the dependency in the project model
 
-As with all other features of the CAS server (and the services management webapp), the MongoDB service registry is enabled by adding a new dependency to the project object model (`pom.xml`). But this time we are actually replacing one feature (the JSON service registry) with another, so rather than adding a new dependency to the list, we will update one in place.
+As with all other features of the CAS server (and the management webapp), the MongoDB service registry is enabled by adding a new dependency to the project object model (`pom.xml`). But this time we are actually replacing one feature (the JSON service registry) with another, so rather than adding a new dependency to the list, we will update one in place.
 
 ### CAS server
 
@@ -46,7 +46,7 @@ This will instruct Maven to download the appropriate code modules and build them
 
 ### Service management webapp
 
-Edit the file `pom.xml` in the `cas-services-management-overlay` directory on the master build server (***casdev-master***) and locate the `cas-server-support-json-service-registry` dependency (around line 78) that was added when the services management webapp was [first built][building_svcmgmt_build-the-webapp], and repeat the change described above (replace `json` with `mongo` in the name of the dependency).
+Edit the file `pom.xml` in the `cas-management-overlay` directory on the master build server (***casdev-master***) and locate the `cas-server-support-json-service-registry` dependency (around line 78) that was added when the management webapp was [first built][building_svcmgmt_build-the-webapp], and repeat the change described above (replace `json` with `mongo` in the name of the dependency).
 
 ## Rebuild the application
 
@@ -74,9 +74,9 @@ casdev-master# ./mvnw clean package
 casdev-master#  
 ```
 
-### Services manaagement webapp
+### Manaagement webapp
 
-From the `cas-services-management-overlay` directory:
+From the `cas-management-overlay` directory:
 
 ```console
 casdev-master# ./mvnw clean package
@@ -98,7 +98,7 @@ casdev-master#
 
 ## Configure MongoDB service registry properties
 
-Both the CAS server and the services management webapp need to be configured to recognize and use the MongoDB service registry.
+Both the CAS server and the management webapp need to be configured to recognize and use the MongoDB service registry.
 
 ### CAS server
 
@@ -139,9 +139,9 @@ The `cas.serviceRegistry.mongo.collection` property setting is not required, but
 
 Do not delete the `cas.serviceRegistry.json.location` property from `cas.properties` just yet; it's still needed to transfer the contents of the JSON service registry to the MongoDB service registry.
 
-### Services management webapp
+### Management webapp
 
-Copy the settings that were added to the CAS server above to `etc/cas/config/management.properties` in the `cas-services-management-overlay` directory.
+Copy the settings that were added to the CAS server above to `etc/cas/config/management.properties` in the `cas-management-overlay` directory.
 
 Delete the `cas.serviceRegistry.json.location` property from `management.properties`; it is not needed now that we are using the MongoDB service registry.
 

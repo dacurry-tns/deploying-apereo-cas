@@ -1,14 +1,14 @@
 ---
 title: Configure logging settings
-last_updated: April 30, 2018
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: building_svcmgmt_configure-logging-settings.html
 summary:
 ---
 
-The services management webapp includes its own Log4j configuration. [As we did with the CAS server][building_server_configure-logging-settings], we will move the location of the log file from the root of the web application directory to `/var/log/cas`.
+The management webapp includes its own Log4j configuration. [As we did with the CAS server][building_server_configure-logging-settings], we will move the location of the log file from the root of the web application directory to `/var/log/cas`.
 
-Edit the file `etc/cas/config/log4j2-management.xml` in the `cas-services-management-overlay` directory on the master build server (***casdev-master***) and find the line that defines the `cas.log.dir` property (around line 9) and change its value to `/var/log/cas`, like this:
+Edit the file `etc/cas/config/log4j2-management.xml` in the `cas-management-overlay` directory on the master build server (***casdev-master***) and find the line that defines the `cas.log.dir` property (around line 9) and change its value to `/var/log/cas`, like this:
 
 ```xml
 <Property name="cas.log.dir" >/var/log/cas</Property>

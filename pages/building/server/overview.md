@@ -1,6 +1,6 @@
 ---
 title: Building the CAS server
-last_updated: September 1, 2017
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: building_server_overview.html
 summary: Now that the development environment has been set up, CAS server development can begin with building and configuring a (very) basic server.
@@ -14,7 +14,7 @@ We only have to manage the files that contain our customizations; Maven will tak
 
 ## Create a work area
 
-Because we will be working with more than one WAR overlay project (we will be creating separate ones later for the services management application and the cloud configuration server), we'll create a top-level directory to keep them all in. Run the command
+Because we will be working with more than one WAR overlay project (we will be creating separate ones later for the management application and the cloud configuration server), we'll create a top-level directory to keep them all in. Run the command
 
 ```console
 casdev-master# mkdir /opt/workspace

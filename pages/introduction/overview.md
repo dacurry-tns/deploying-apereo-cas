@@ -1,6 +1,6 @@
 ---
 title: Introduction
-last_updated: September 11, 2018
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: introduction_overview.html
 summary: This document provides step-by-step instructions for setting up an Apereo CAS 5 environment. It was created during the process of building a brand new development environment to experiment with many of the new features in this release.
@@ -34,7 +34,7 @@ The New School's major implementation goals for this environment are:
     * Built-in support for multi-factor authentication
         * Duo Security (forthcoming for faculty and staff)
         * Google Authenticator (perhaps, for students)
-* New management console and services management webapps
+* New management console and management webapps
     * Management console
         * Dashboard for monitoring server status and performance
         * Active sessions and authentications

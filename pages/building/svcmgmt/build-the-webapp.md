@@ -1,16 +1,16 @@
 ---
 title: Build the webapp
-last_updated: November 8, 2017
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: building_svcmgmt_build-the-webapp.html
 summary:
 ---
 
-Before building the services management webapp, the build must be configured to include the same service registry persistence method as the CAS server. This is accomplished by adding a dependency to the Maven project object model. For this project, that means adding the JSON service registry.
+Before building the management webapp, the build must be configured to include the same service registry persistence method as the CAS server. This is accomplished by adding a dependency to the Maven project object model. For this project, that means adding the JSON service registry.
 
 ## Add the JSON service registry to the project object model
 
-Just as we [did for the CAS server][building_server_service-registry_add-feature-and-rebuild], edit the file `pom.xml` in the `cas-services-management-overlay` directory on the master build server (***casdev-master***) and locate the `dependencies` section (around line 69), which should look something like this:
+Just as we [did for the CAS server][building_server_service-registry_add-feature-and-rebuild], edit the file `pom.xml` in the `cas-management-overlay` directory on the master build server (***casdev-master***) and locate the `dependencies` section (around line 69), which should look something like this:
 
 ```xml
 <dependencies>
@@ -50,7 +50,7 @@ casdev-master# ./mvnw clean package
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ------------------------------------------------------------------------
-[INFO] Building cas-services-management-overlay 1.0
+[INFO] Building cas-management-overlay 1.0
 [INFO] ------------------------------------------------------------------------
 (lots of diagnostic output...check for errors)
 [INFO] BUILD SUCCESS

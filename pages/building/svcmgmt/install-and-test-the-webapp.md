@@ -1,23 +1,23 @@
 ---
 title: Install and test the webapp
-last_updated: December 21, 2017
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: building_svcmgmt_install-and-test-the-webapp.html
 summary:
 ---
 
-To deploy the services management webapp, we have to copy the application we just built with Maven into Tomcat's `webapps` directory., And, to make sure everything stays in sync, it probably makes sense to (re)copy the CAS server application into `webapps` as well. We also have to copy the new and updated files in `etc/cas` from both the `cas-services-management-overlay` and `cas-overlay-template` directories.
+To deploy the management webapp, we have to copy the application we just built with Maven into Tomcat's `webapps` directory., And, to make sure everything stays in sync, it probably makes sense to (re)copy the CAS server application into `webapps` as well. We also have to copy the new and updated files in `etc/cas` from both the `cas-management-overlay` and `cas-overlay-template` directories.
 
 ## Update the distribution `tar` file creation script
 
-[Earlier][building_server_install-and-test-the-cas-application], we created a shell script to handle building the distribution `tar` file (if you didn't do this then, now is the time to do it). That script can be extended to combine the necessary components of both the `cas-overlay-template` and the `cas-services-management-overlay` into a single `tar` archive. Edit your `cassrv-tarball.sh` script and update/replace its contents so that it looks something like this:
+[Earlier][building_server_install-and-test-the-cas-application], we created a shell script to handle building the distribution `tar` file (if you didn't do this then, now is the time to do it). That script can be extended to combine the necessary components of both the `cas-overlay-template` and the `cas-management-overlay` into a single `tar` archive. Edit your `cassrv-tarball.sh` script and update/replace its contents so that it looks something like this:
 
 ```bash
 #!/bin/sh
 
 WORKSPACE=/opt/workspace
 SERVER=${WORKSPACE}/cas-overlay-template
-WEBAPP=${WORKSPACE}/cas-services-management-overlay
+WEBAPP=${WORKSPACE}/cas-management-overlay
 
 tar czf /tmp/cassrv-files.tgz --owner=root --group=tomcat --mode=g-w,o-rwx \
     -C ${SERVER} etc/cas \
@@ -33,7 +33,7 @@ exit 0
 
 ## Update the installation shell script
 
-When we created the original `cassrv-tarball.sh` script, we also created a `cassrv-install.sh` script to manage shutting down Tomcat, deleting the old contents of `/etc/cas`, deleting the old copy of the CAS server application (and any associated runtime files), extracting a new copy of the application from the `tar` archive, and restarting Tomcat. That script can also be extended to handle both the CAS server and the services management webapp. Edit your `cassrv-install.sh` script and update/replace its contents so that it looks something like this:
+When we created the original `cassrv-tarball.sh` script, we also created a `cassrv-install.sh` script to manage shutting down Tomcat, deleting the old contents of `/etc/cas`, deleting the old copy of the CAS server application (and any associated runtime files), extracting a new copy of the application from the `tar` archive, and restarting Tomcat. That script can also be extended to handle both the CAS server and the management webapp. Edit your `cassrv-install.sh` script and update/replace its contents so that it looks something like this:
 
 ```bash
 #!/bin/sh
@@ -47,7 +47,7 @@ then
 
     cd /
 
-    # Only delete/replace etc/cas/services if services management webapp is
+    # Only delete/replace etc/cas/services if management webapp is
     # not already installed
     if [ ! -d /opt/tomcat/latest/webapps/cas-management ]
     then
@@ -82,7 +82,7 @@ exit 0
 
 ## Install and test on the master build server
 
-Use the new scripts created above (or repeat the commands) to install the services management webapp and updated CAS server files on the master build server (***casdev-master***) and restart Tomcat:
+Use the new scripts created above (or repeat the commands) to install the management webapp and updated CAS server files on the master build server (***casdev-master***) and restart Tomcat:
 
 ```console
 casdev-master# sh /opt/scripts/cassrv-tarball.sh
@@ -121,15 +121,15 @@ on all but one of the CAS servers (***casdev-srvXX***) to temporarily take those
 
 ## Access the webapp
 
-Open up a web browser (in “incognito” or “private browsing” mode) and enter the URL of the services management webapp:
+Open up a web browser (in “incognito” or “private browsing” mode) and enter the URL of the management webapp:
 
 ```
 https://casdev.newschool.edu/cas-management
 ```
 
-and authenticate as a user listed in the `/etc/cas/config/admusers.properties` file. The default screen of the services management webapp, which shows a list of all configured services sorted by order of evaluation, should appear and look something like Figure 22.
+and authenticate as a user listed in the `/etc/cas/config/admusers.properties` file. The default screen of the management webapp, which shows a list of all configured services sorted by order of evaluation, should appear and look something like Figure 22.
 
-{% include image.html file="building/svcmgmt/fig22-the-svc-mgmt-webapp.png" alt="Browser Screen Shot" caption="Figure 22. The services managemement webapp" %}
+{% include image.html file="building/svcmgmt/fig22-the-svc-mgmt-webapp.png" alt="Browser Screen Shot" caption="Figure 22. The managemement webapp" %}
 
 ## Try editing a service registry entry
 
@@ -139,7 +139,7 @@ Select "Edit" from the menu at the left of one of the service definitions (it do
 
 Click the "Save Changes" button at the top right of the window, and verify that the changes can be successfully saved (a message will appear at the bottom of the window). Check the log file (`/var/log/cas/cas.log`) and the contents of the changed service definition in `/etc/cas/services`, too.
 
-{% include note.html content="The services management webapp always writes the complete service definition to the registry, not just the parts that are different than the default values. So don't be surprised when the definition you just edited has a lot more \"stuff\" in it that it did before you changed it." %}
+{% include note.html content="The management webapp always writes the complete service definition to the registry, not just the parts that are different than the default values. So don't be surprised when the definition you just edited has a lot more \"stuff\" in it that it did before you changed it." %}
 
 ## Try creating a service registry entry
 

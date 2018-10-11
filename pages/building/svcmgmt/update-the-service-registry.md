@@ -1,12 +1,12 @@
 ---
 title: Update the service registry
-last_updated: November 8, 2017
+last_updated: October 11, 2018
 sidebar: main_sidebar
 permalink: building_svcmgmt_update-the-service-registry.html
 summary:
 ---
 
-Since we are using the CAS server to protect the services management webapp, we need to create a service definition for it.
+Since we are using the CAS server to protect the management webapp, we need to create a service definition for it.
 
 ## Create a service definition for the webapp
 
