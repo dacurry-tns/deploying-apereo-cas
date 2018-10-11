@@ -66,6 +66,22 @@ In order for the management webapp to manage the services registry used by the C
 cas.serviceRegistry.json.location:     file:/etc/cas/services
 ```
 
+## Configure the stub attribute repository
+
+The management webapp allows attribute release policies to be configured on a per-service basis. In order for it to know which attributes are available for release, a special "stub" attribute repository should be configured, with the names of all the attributes available for release (generally, this should be the combined set of names from all the attribute repositories configured in `cas.properties`):
+
+```properties
+cas.authn.attributeRepository.stub.attributes.UDC_IDENTIFIER:   UDC_IDENTIFIER
+cas.authn.attributeRepository.stub.attributes.cn:               cn
+cas.authn.attributeRepository.stub.attributes.displayName:      displayName
+cas.authn.attributeRepository.stub.attributes.givenName:        givenName
+cas.authn.attributeRepository.stub.attributes.mail:             mail
+cas.authn.attributeRepository.stub.attributes.sn:               sn
+cas.authn.attributeRepository.stub.attributes.uid:              uid
+```
+
+Without this configuration, the management webapp will only be able to configure the "all" or "none" release policies; it will not be able to support picking and choosing the attributes to be released.
+
 ## References
 
 * [CAS 5: Configuration Properties: Management Webapp][casdoc-config-svcmgmt-app]
