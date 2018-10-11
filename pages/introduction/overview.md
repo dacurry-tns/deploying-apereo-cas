@@ -1,12 +1,12 @@
 ---
 title: Introduction
-last_updated: April 16, 2018
+last_updated: September 11, 2018
 sidebar: main_sidebar
 permalink: introduction_overview.html
 summary: This document provides step-by-step instructions for setting up an Apereo CAS 5 environment. It was created during the process of building a brand new development environment to experiment with many of the new features in this release.
 ---
 
-{% include callout.html type="primary" content="**CAS VERSION USED IN THIS DOCUMENT**<br><br>The instructions, configuration settings, and hyperlink references contained in this document are based on **CAS 5.2.4** which, as of the \"last updated\" date at the bottom of this page, is the latest General Availability (GA) release. Using this document with the CAS 5.1.*x* or CAS 5.3.*x* branches should be possible, but there may be some differences in available functionality and the names or values of some configuration settings.<br><br>The best way to learn about changes from one release to another is to read Misagh Moayyed's \"Changelog\" blog posts. These come out with each release candidate, and describe the significant changes from the previous release candidate (cumulatively, the changelogs for the several release candidates describe the changes from one feature release to the next). To access these blog posts, go to the [Releases][casrepo-releases] section of the [CAS GitHub Repository][casrepo] and search for \"Changelog\"." %}
+{% include callout.html type="primary" content="**CAS VERSION USED IN THIS DOCUMENT**<br><br>The instructions, configuration settings, and hyperlink references contained in this document are based on **CAS 5.2.7**. Most of the information presented here is also applicable to the CAS 5.1.*x* and CAS 5.3.*x* branches, with the caveat that some features may not exist in earlier versions, and the names or values of some configuration settings may have changed between releases.<br><br>The best way to learn about changes from one release to another is to read Misagh Moayyed's \"Changelog\" blog posts. These come out with each release candidate, and describe the significant changes from the previous release candidate (cumulatively, the changelogs for the several release candidates describe the changes from one feature release to the next). To access these blog posts, go to the [Releases][casrepo-releases] section of the [CAS GitHub Repository][casrepo] and search for \"Changelog\"." %}
 
 [Apereo CAS 5][casdocs] was released in November 2016. The new release improved on many of the enhancements introduced in the CAS 4 series of releases, and also introduced several new features that will enable The New School to offer an improved single sign-on experience to its users.
 
