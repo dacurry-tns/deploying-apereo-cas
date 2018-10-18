@@ -5,7 +5,7 @@ port: 4001
 output: pdf
 product: deploying-apereo-cas
 print_title: Deploying Apereo CAS
-print_subtitle: (DRAFT)
+print_subtitle: 
 output: pdf
 defaults:
   -
