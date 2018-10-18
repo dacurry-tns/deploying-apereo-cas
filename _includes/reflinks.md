@@ -15,6 +15,9 @@
 [acmetek-java-keytool]:         https://www.sslsupportdesk.com/java-keytool-commands/
 [ant-pattern-doc]:              https://ant.apache.org/manual/dirtasks.html
 
+[bootstrap-3]:                  https://getbootstrap.com/docs/3.3/
+[bootstrap-4]:                  https://getbootstrap.com/docs/
+
 [casdocs]:                      https://apereo.github.io/cas/5.2.x/index.html
 [casdoc-attrib-rel]:            https://apereo.github.io/cas/5.2.x/integration/Attribute-Release.html
 [casdoc-attrib-rel-pol]:        https://apereo.github.io/cas/5.2.x/integration/Attribute-Release-Policies.html
@@ -32,6 +35,10 @@
 [casdoc-config-saml2-auth]:     https://apereo.github.io/cas/5.2.x/installation/Configuring-SAML2-Authentication.html
 [casdoc-config-server]:         https://apereo.github.io/cas/5.2.x/installation/Configuration-Server-Management.html
 [casdoc-config-svcmgmt-app]:    https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#management-webapp
+[casdoc-config-themes]:         https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#themes
+[casdoc-config-views]:          https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#views
+[casdoc-config-googleapps]:     https://apereo.github.io/cas/5.2.x/installation/Configuration-Properties.html#google-apps-authentication
+[casdoc-googleapps]:            https://apereo.github.io/cas/5.2.x/integration/Google-Apps-Integration.html
 [casdoc-ha-guide]:              https://apereo.github.io/cas/5.2.x/planning/High-Availability-Guide.html
 [casdoc-inst-req]:              https://apereo.github.io/cas/5.2.x/planning/Installation-Requirements.html
 [casdoc-ldap-auth]:             https://apereo.github.io/cas/5.2.x/installation/LDAP-Authentication.html
@@ -54,11 +61,19 @@
 [casdoc-svc-reg-json]:          https://apereo.github.io/cas/5.2.x/installation/JSON-Service-Management.html
 [casdoc-svc-reg-mongo]:         https://apereo.github.io/cas/5.2.x/installation/Mongo-Service-Management.html
 [casdoc-ticketing]:             https://apereo.github.io/cas/5.2.x/installation/Configuring-Ticketing-Components.html
+[casdoc-ui-cssjs]:              https://apereo.github.io/cas/5.2.x/installation/User-Interface-Customization-CSSJS.html
+[casdoc-ui-themes]:             https://apereo.github.io/cas/5.2.x/installation/User-Interface-Customization-Themes.html
+[casdoc-ui-views]:              https://apereo.github.io/cas/5.2.x/installation/User-Interface-Customization-Views.html
 [casdoc-war-overlay]:           https://apereo.github.io/cas/5.2.x/installation/Maven-Overlay-Installation.html
+[casdoc-webflow-cust]:          https://apereo.github.io/cas/5.2.x/installation/Webflow-Customization.html
 [casdoc-webflow-sess]:          https://apereo.github.io/cas/5.2.x/installation/Webflow-Customization-Sessions.html
 
 [casrepo]:                      https://github.com/apereo/cas
 [casrepo-releases]:             https://github.com/apereo/cas/releases
+
+[cas-user]:                     https://groups.google.com/a/apereo.org/forum/#!forum/cas-user
+[cas-user-ng]:                  https://groups.google.com/a/apereo.org/forum/#!searchin/cas-user/themes/cas-user/k-yfoou7Zy0/BXry1PxgFAAJ
+[cas-user-chase]:               https://groups.google.com/a/apereo.org/forum/#!searchin/cas-user/template/cas-user/3eaKVAMhFYE/uuj7eEpCAwAJ
 
 [code-beautify-json-pp]:        https://codebeautify.org/jsonviewer
 
@@ -70,6 +85,10 @@
 
 [firewalld-ipset]:              http://www.firewalld.org/documentation/man-pages/firewalld.ipset.html
 [firewalld-richlanguage]:       http://www.firewalld.org/documentation/man-pages/firewalld.richlanguage.html
+
+[google-gen-keys-certs]:        https://support.google.com/a/answer/6342198
+[google-saml-key-and-cert]:     https://support.google.com/a/answer/6349922?hl=en&ref_topic=6348126
+[google-sp-sso-setup]:          https://support.google.com/a/answer/6349809?hl=en&ref_topic=6348126
 
 [havege-daemon]:                http://www.issihosts.com/haveged/
 [havege-project]:               https://www.irisa.fr/caps/projects/hipsor/index.php
@@ -83,7 +102,13 @@
 
 [linode-mongodb-replica]:       https://www.linode.com/docs/databases/mongodb/create-a-mongodb-replica-set
 
+[material-design]:              https://material.io/
+
 [maven-overlays]:               http://maven.apache.org/plugins/maven-war-plugin/overlays.html
+[maven-dir-layout]:             https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html
+
+[md-for-bs-3]:                  https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/gh-pages-v3/index.html
+[md-for-bs-4]:                  https://fezvrasta.github.io/bootstrap-material-design/
 
 [mod_auth_cas]:                 https://github.com/apereo/mod_auth_cas
 
@@ -110,6 +135,8 @@
 
 [qualys-ssltest]:               https://www.ssllabs.com/ssltest/
 
+[rsa-saml-test-sp]:             https://sptest.iamshowcase.com/
+
 [scram]:                        https://tools.ietf.org/html/rfc5802
 
 [shibboleth-attr-naming]:       https://wiki.shibboleth.net/confluence/display/SHIB2/AttributeNaming
@@ -120,6 +147,10 @@
 [shibinstallfest]:              https://spaces.internet2.edu/pages/viewpage.action?pageId=30245422
 
 [testssl-sh]:                   https://github.com/drwetter/testssl.sh
+
+[thymeleaf-layout-examples]:    https://ultraq.github.io/thymeleaf-layout-dialect/Examples.html
+[thymeleaf-spring-tut]:         https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html
+[thymeleaf-using-tut]:          https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html
 
 [tomcat-ciphers]:               https://wiki.apache.org/tomcat/Security/Ciphers
 [tomcat-http-conn]:             https://tomcat.apache.org/tomcat-8.5-doc/config/http.html

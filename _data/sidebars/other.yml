@@ -19,3 +19,9 @@ entries:
       url: /building_svcmgmt_create-a-maven-war-overlay-project.html#localbranch
     - title: Create the admusers.properties file
       url: /building_server_dashboard_configure-admin-pages-properties.html#create-the-admusersproperties-file
+    - title: Changing decorative elements (styles and scrpipts)
+      url: /ui_how-cas-themes-work.html#changing-decorative-elements-styles-and-scripts
+    - title: Changing structural elements (HTML views)
+      url: /ui_how-cas-themes-work.html#changing-structural-elements-html-views
+    - title: Copy CAS-generate IdP metadata to the overlay template
+      url: /building_server_saml_install-and-test-the-idp.html#copy-cas-generated-idp-metadata-to-the-overlay-template

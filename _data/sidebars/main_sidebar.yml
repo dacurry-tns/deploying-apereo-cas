@@ -319,7 +319,7 @@ entries:
       url: /building_server_dashboard_commit-changes-to-git.html
       output: web, pdf
 
-  - title: Building the services management webapp
+  - title: Building the management webapp
     output: web, pdf
     folderitems:
     - title: Overview
@@ -352,6 +352,45 @@ entries:
     folderitems:
     - title: Overview
       url: /ui_overview.html
+      output: web, pdf
+    - title: How CAS themes work
+      url: /ui_how-cas-themes-work.html
+      output: web, pdf
+    - title: How Thymelaf layouts work
+      url: /ui_how-thymeleaf-layouts-work.html
+      output: web, pdf
+    - title: Add a new theme to the overlay
+      url: /ui_add-a-new-theme-to-the-overlay.html
+      output: web, pdf
+    - title: Build and deploy the overlay
+      url: /ui_build-and-deploy-the-overlay.html
+      output: web, pdf
+
+      subfolders:
+      - title: Develop the custom theme
+        output: web, pdf
+        subfolderitems:
+        - title: Overview
+          url: /ui_develop_overview.html
+          output: web, pdf
+        - title: Update the layout template
+          url: /ui_develop_update-the-layout-template.html
+          output: web, pdf
+        - title: Update the login view
+          url: /ui_develop_update-the-login-view.html
+          output: web, pdf
+        - title: Update the logout view
+          url: /ui_develop_update-the-logout-view.html
+          output: web, pdf
+        - title: Update other relevant views
+          url: /ui_develop_update-other-relevant-views.html
+          output: web, pdf
+
+    - title: Install and test the final result
+      url: /ui_install-and-test-the-final-result.html
+      output: web, pdf
+    - title: Commit changes to Git
+      url: /ui_commit-changes-to-git.html
       output: web, pdf
 
   - title: High availability
@@ -441,6 +480,35 @@ entries:
         - title: Overview
           url: /high-avail_distrib-config_overview.html
           output: web, pdf
+
+  - title: Google Apps (G Suite) integration
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /googleapps_overview.html
+      output: web, pdf
+    - title: Generate keys and certificates
+      url: /googleapps_generate-keys-and-certificates.html
+      output: web, pdf
+    - title: Configure Google single sign-on
+      url: /googleapps_configure-google-sso.html
+      output: web, pdf
+    - title: Install and test the application
+      url: /googleapps_install-and-test-the-application.html
+      output: web, pdf
+
+  - title: Moving to production
+    output: web, pdf
+    folderitems:
+    - title: Overview
+      url: /prod_overview.html
+      output: web, pdf
+    - title: Configuration changes
+      url: /prod_configuration-changes.html
+      output: web, pdf
+    - title: Problems encountered
+      url: /prod_problems-encountered.html
+      output: web, pdf
 
   - title: About
     output: web, pdf
