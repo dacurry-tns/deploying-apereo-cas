@@ -6,7 +6,7 @@
 
 #### Documentation Content
 
-All documentation content (the material contained in the *pages* subdirectory) is Copyright &copy; 2017, The New School. It is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+All documentation content (the material contained in the *pages* subdirectory) is Copyright &copy; 2018, The New School. It is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
 ![Creative Commons Icon][ccimg]
 
